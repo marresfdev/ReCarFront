@@ -111,3 +111,7 @@
         font-size: 2rem; /* Texto más pequeño para pantallas extra pequeñas */
     }
 }
+
+.carousel-container {
+    height: 60vh; /* Esto hará que el carrusel ocupe el 60% de la altura de la pantalla */
+}
