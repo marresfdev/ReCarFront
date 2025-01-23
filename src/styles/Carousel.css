@@ -3,14 +3,17 @@
     width: 100vw; /* Abarca todo el ancho de la pantalla */
     max-width: 100%; /* Asegura que no se pase del ancho */
     position: relative; /* Asegura que los controles estén bien posicionados */
+    margin: 0; /* Elimina cualquier margen extra */
+    padding: 0; /* Elimina cualquier padding extra */
+    overflow: hidden; /* Evita que algo salga del contenedor */
 }
 
 /* Ajuste de las imágenes */
 .full-width-carousel .carousel-inner img {
     object-fit: cover; /* Ajusta las imágenes para que se vean bien */
     width: 100%; /* Abarca todo el contenedor */
-    height: 100vh; /* Opcional: Abarca toda la altura de la pantalla */
-    filter: brightness(70%); /* Oscurece ligeramente las imágenes */
+    height: 100vh; /* Abarca toda la altura de la pantalla */
+    filter: brightness(50%); /* Oscurece las imágenes aún más */
 }
 
 /* Superposición oscura para el texto */
@@ -20,7 +23,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.297); /* Fondo oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.203); /* Fondo oscuro más opaco */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,9 +33,81 @@
 /* Estilo del texto encima de las imágenes */
 .full-width-carousel .carousel-text {
     color: white; /* Texto blanco para contraste */
-    font-size: 3rem; /* Tamaño del texto */
+    font-size: 3rem; /* Tamaño del texto grande por defecto */
     font-weight: bold; /* Texto en negrita */
     text-align: center; /* Centrado horizontal */
     z-index: 2; /* Asegura que esté encima del overlay */
     padding: 0 20px; /* Espaciado para que no quede pegado a los bordes */
+}
+
+/* Botones del carousel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: brightness(80%); /* Asegura que los iconos sean visibles en el overlay oscuro */
+}
+
+/* Media Queries para hacer el carousel responsivo */
+
+/* Pantallas medianas */
+@media (max-width: 1024px) {
+    .full-width-carousel .carousel-inner img {
+        height: 80vh; /* Reduce la altura del carrusel */
+    }
+
+    .full-width-carousel .carousel-text {
+        font-size: 2rem; /* Reduce el tamaño del texto */
+    }
+}
+
+/* Pantallas pequeñas (tablets y teléfonos) */
+@media (max-width: 768px) {
+    .full-width-carousel .carousel-inner img {
+        height: 60vh; /* Reduce aún más la altura */
+    }
+
+    .full-width-carousel .carousel-text {
+        font-size: 1.5rem; /* Ajusta el tamaño del texto */
+        padding: 0 10px; /* Reduce el espaciado lateral */
+    }
+}
+
+/* Pantallas extra pequeñas */
+@media (max-width: 576px) {
+    .full-width-carousel .carousel-inner img {
+        height: 50vh; /* Altura más pequeña */
+    }
+
+    .full-width-carousel .carousel-text {
+        font-size: 1.2rem; /* Texto más pequeño */
+    }
+}
+
+
+/* Estilo del texto encima de las imágenes */
+.full-width-carousel .carousel-text {
+    color: white; /* Texto blanco */
+    font-size: 4rem; /* Tamaño del texto más grande */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrado horizontal */
+    z-index: 2; /* Asegura que esté encima del overlay */
+    padding: 0 20px; /* Espaciado para que no quede pegado a los bordes */
+}
+
+/* Media Queries para tamaños más pequeños */
+@media (max-width: 1024px) {
+    .full-width-carousel .carousel-text {
+        font-size: 3rem; /* Reduce un poco el tamaño en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .full-width-carousel .carousel-text {
+        font-size: 2.5rem; /* Tamaño más pequeño en tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .full-width-carousel .carousel-text {
+        font-size: 2rem; /* Texto más pequeño para pantallas extra pequeñas */
+    }
 }
