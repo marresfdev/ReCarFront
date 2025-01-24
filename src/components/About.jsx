@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/About.css"; // Asegúrate de crear este archivo CSS
-import recarLogo from "../assets/recarlogo.png";
+import recarLogo from "../assets/recarequipo.png";
 
 const About = (props) => {
   return (
@@ -9,7 +9,7 @@ const About = (props) => {
         <div className="row">
           <div className="col-xs-12 col-md-6">
             <img
-              src={props.image || "recarLogo" } // Puedes poner una imagen predeterminada si no hay una imagen
+              src={props.image || recarLogo } // Puedes poner una imagen predeterminada si no hay una imagen
               className="img-responsive"
               alt="About us"
             />

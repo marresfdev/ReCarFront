@@ -8,6 +8,10 @@
     overflow: hidden; /* Evita que algo salga del contenedor */
 }
 
+body {
+    padding-top: 700px; /* Ajusta este valor según la altura de tu navbar */
+}
+  
 /* Ajuste de las imágenes */
 .full-width-carousel .carousel-inner img {
     object-fit: cover; /* Ajusta las imágenes para que se vean bien */
