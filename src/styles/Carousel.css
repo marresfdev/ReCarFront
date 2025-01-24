@@ -9,15 +9,15 @@
 }
 
 body {
-    padding-top: 850px; /* Ajusta este valor según la altura de tu navbar */
+    padding-top: 800px;
 }
   
 /* Ajuste de las imágenes */
 .full-width-carousel .carousel-inner img {
-    object-fit: cover; /* Ajusta las imágenes para que se vean bien */
-    width: 100%; /* Abarca todo el contenedor */
-    height: 100vh; /* Abarca toda la altura de la pantalla */
-    filter: brightness(50%); /* Oscurece las imágenes aún más */
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    filter: brightness(50%);
 }
 
 /* Superposición oscura para el texto */

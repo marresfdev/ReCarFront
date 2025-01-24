@@ -22,8 +22,8 @@ html, body {
   }
   
   .navbar-brand img {
-    width: 120px; /* Ajusta el ancho del logo */
-    height: 100px; /* Mantén la proporción del logo */
+    width: 110px; /* Ajusta el ancho del logo */
+    height: auto; /* Mantén la proporción del logo */
   }
   
   

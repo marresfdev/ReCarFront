@@ -94,8 +94,8 @@ const Carousel = () => {
                 <div className="carousel-item" data-bs-interval="2500">
                     <img src={carritoImg6} className="d-block w-100" alt="Slide 6" />
                     <div className="carousel-caption d-none d-md-block" style={{ color: "white", fontSize: "24px", padding: "10px", position: "absolute", top: "70%", left: "50%", transform: "translate(-50%, -50%)" }}>
-                        <h2>Garantía en transmisión y motor</h2>
-                        <p>Enganche desde el 10%.</p>
+                        <h2>Enganche desde el 10%</h2>
+                        <p>Siempre pensando en el cliente</p>
                     </div>
                 </div>
             </div>

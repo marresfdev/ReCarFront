@@ -8,10 +8,10 @@
   border-radius: 15px; /* Bordes redondeados */
   background-color: #ffffff; /* Fondo blanco */
   box-shadow: 0 4px 10px #00000069; /* Sombra sutil debajo */
-  max-width: 1200px; /* Tamaño máximo */
-  width: 100%; /* Asegura que el contenedor ocupe todo el espacio disponible */
+  width: calc(100% - 200px); /* Ocupa todo el ancho menos 50px de margen a cada lado */
   margin-left: auto;
   margin-right: auto; /* Centra el contenedor */
+  box-sizing: border-box; /* Asegura que el padding no se agregue al ancho total */
 }
 
 .about-text {
@@ -84,7 +84,7 @@
   }
 
   .list-style {
-    flex-direction: column; /* Cambia la dirección de las listas a columna en pantallas pequeñas */
+    flex-direction: column;
   }
 
   .list-style li {
