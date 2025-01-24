@@ -1,58 +1,93 @@
 #about {
-    padding: 60px 0;
+  padding: 60px 0;
+}
+
+.about-container {
+  padding: 40px;
+  margin: 10px; /* Margen de 10px a cada lado */
+  border-radius: 15px; /* Bordes redondeados */
+  background-color: #ffffff; /* Fondo blanco */
+  box-shadow: 0 4px 10px #00000069; /* Sombra sutil debajo */
+  max-width: 1200px; /* Tamaño máximo */
+  width: 100%; /* Asegura que el contenedor ocupe todo el espacio disponible */
+  margin-left: auto;
+  margin-right: auto; /* Centra el contenedor */
+}
+
+.about-text {
+  padding-left: 20px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about-text h3 {
+  font-size: 28px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.list-style {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.list-style ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-text p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.list-style li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#about img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 20px; /* Reduce el padding en pantallas más pequeñas */
   }
-  
+
   .about-text {
-    padding-left: 20px;
+    padding-left: 0;
   }
-  
+
   .about-text h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .about-text h3 {
     font-size: 28px;
-    margin-top: 30px;
-    margin-bottom: 20px;
   }
-  
+
+  .about-text h3 {
+    font-size: 24px;
+  }
+
   .about-text p {
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 16px;
   }
-  
+
   .list-style {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column; /* Cambia la dirección de las listas a columna en pantallas pequeñas */
   }
-  
-  .list-style ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .about-text p {
-    text-align: justify;
-    line-height: 1.6; /* Opcional: Mejora la legibilidad aumentando el interlineado */
-  }
-  
+
   .list-style li {
-    font-size: 90px;
-    margin-bottom: 10px;
+    font-size: 16px;
   }
-  
-  #about img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  @media (max-width: 768px) {
-    .about-text {
-      padding-left: 0;
-    }
-  }
-  
+}
