@@ -33,8 +33,13 @@
     padding: 0;
   }
   
+  .about-text p {
+    text-align: justify;
+    line-height: 1.6; /* Opcional: Mejora la legibilidad aumentando el interlineado */
+  }
+  
   .list-style li {
-    font-size: 18px;
+    font-size: 90px;
     margin-bottom: 10px;
   }
   
