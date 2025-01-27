@@ -1,94 +1,77 @@
 #about {
-  padding: 60px 0;
+  margin-top: 50px;
 }
 
 .about-container {
-  padding: 40px;
-  margin: 10px; /* Margen de 10px a cada lado */
-  border-radius: 15px; /* Bordes redondeados */
-  background-color: #ffffff; /* Fondo blanco */
-  box-shadow: 0 4px 10px #00000024; /* Sombra sutil debajo */
-  width: calc(100% - 200px); /* Ocupa todo el ancho menos 50px de margen a cada lado */
-  margin-left: auto;
-  margin-right: auto; /* Centra el contenedor */
-  box-sizing: border-box; /* Asegura que el padding no se agregue al ancho total */
-}
-
-.about-text {
-  padding-left: 20px;
-}
-
-.about-text h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-.about-text h3 {
-  font-size: 28px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
-.about-text p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.list-style {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between; /* Distribuir en línea, uno al lado del otro */
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: auto;
 }
 
-.list-style ul {
+.about-section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 48%; /* Cada sección ocupará la mitad del ancho del contenedor */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.about-section ul {
   list-style-type: none;
-  padding: 0;
+  padding-left: 0;
 }
 
-.about-text p {
-  text-align: justify;
-  line-height: 1.6;
+.about-section ul li {
+  font-size: 1.1rem;
+  color: #555;
+  padding: 5px 0;
 }
 
-.list-style li {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-#about img {
-  width: 100%;
+.about-img {
+  max-width: 250px;
   height: auto;
   border-radius: 8px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 30px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .about-container {
-    padding: 20px; /* Reduce el padding en pantallas más pequeñas */
-    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Esto hará que el contenedor ocupe todo el ancho */
+    margin: 0; /* Asegura que no haya márgenes */
+  }  
+
+  .about-section {
+    width: 100%; /* Las secciones ocupan el 100% del ancho */
+    margin-bottom: 20px;
   }
 
-  .about-text {
-    padding-left: 0;
-  }
-
-  .about-text h2 {
-    font-size: 28px;
-  }
-
-  .about-text h3 {
-    font-size: 24px;
-  }
-
-  .about-text p {
-    font-size: 16px;
-  }
-
-  .list-style {
-    flex-direction: column;
-  }
-
-  .list-style li {
-    font-size: 16px;
-  }
+  .about-img img {
+    max-width: 150px;  /* Reduce el tamaño máximo de la imagen */
+    height: auto;      /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados, opcional */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para la imagen */
+  }  
 }

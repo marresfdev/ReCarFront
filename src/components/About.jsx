@@ -8,14 +8,16 @@ const About = (props) => {
       <div className="about-container">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-md-6">
+            {/* Columna de la imagen */}
+            <div className="col-md-3">
               <img
                 src={props.image || recarLogo} // Imagen predeterminada si no hay una imagen
-                className="img-responsive"
+                className="img-responsive about-img"
                 alt="About us"
               />
             </div>
-            <div className="col-xs-12 col-md-6">
+            {/* Columna del texto */}
+            <div className="col-md-9">
               <div className="about-text">
                 <h2>Sobre Nosotros</h2>
                 <p>
@@ -25,16 +27,14 @@ const About = (props) => {
                   Como orgullosos socios de ANCA, garantizamos la transparencia y profesionalismo en cada una de nuestras transacciones. Nuestro equipo se esfuerza día a día por brindar una atención personalizada que supera las expectativas de nuestros clientes.
                 </p>
                 <h3>¿Por qué elegirnos?</h3>
-                <div className="col-12">
-                  <ul>
-                    <li>Financiamiento flexible adaptado a tus necesidades.</li>
-                    <li>Amplia variedad de vehículos para todos los gustos.</li>
-                    <li>Garantía en trasmisión y motor.</li>
-                    <li>Somos socios de ANCA, asegurando transacciones confiables.</li>
-                    <li>Equipo comprometido con la satisfacción del cliente.</li>
-                    <li>Asesoramiento personalizado para encontrar el auto ideal.</li>
-                  </ul>
-                </div> 
+                <ul>
+                  <li>Financiamiento flexible adaptado a tus necesidades.</li>
+                  <li>Amplia variedad de vehículos para todos los gustos.</li>
+                  <li>Garantía en trasmisión y motor.</li>
+                  <li>Somos socios de ANCA, asegurando transacciones confiables.</li>
+                  <li>Equipo comprometido con la satisfacción del cliente.</li>
+                  <li>Asesoramiento personalizado para encontrar el auto ideal.</li>
+                </ul>
               </div>
             </div>
           </div>

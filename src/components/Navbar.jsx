@@ -25,14 +25,14 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <a className="nav-link" href="#about">
-                <FaHome className="nav-icon" /> Sobre nosotros
+          <li className="nav-item">
+              <a className="nav-link" href="#catalogo">
+                <FaCar className="nav-icon" /> Catálogo
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#catalogo">
-                <FaCar className="nav-icon" /> Catálogo
+              <a className="nav-link" href="#about">
+                <FaHome className="nav-icon" /> Sobre nosotros
               </a>
             </li>
             <li className="nav-item">

@@ -1,0 +1,21 @@
+/* Contenedor de todo el contenido con márgenes laterales pequeños */
+.container-fluid {
+    margin: 0;
+    padding: 0 15px;  /* Añadir pequeño margen a los lados */
+  }
+  
+  /* Hacer que las tarjetas ocupen el 100% de la columna */
+  .card {
+    width: 100%;
+  }
+  
+  /* Las imágenes dentro de las tarjetas ocupan todo el ancho */
+  .card-img-top {
+    width: 100%;
+  }
+  
+  /* Asegurar que el contenido de la tarjeta no esté pegado a los bordes */
+  .card-body {
+    padding: 15px;
+  }
+  
