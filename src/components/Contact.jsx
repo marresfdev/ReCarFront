@@ -52,10 +52,10 @@ const Contact = (props) => {
               <h2>Contáctanos</h2>
               <p>
                 Por favor llene el siguiente formulario para mandarnos un email, estaremos en
-                contacto con usted lo más pronto posible
+                contacto con usted lo más pronto posible.
               </p>
             </div>
-            <form name="sentMessage" validate onSubmit={handleSubmit}>
+            <form name="sentMessage" onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">

@@ -65,6 +65,7 @@
 @media (max-width: 768px) {
   .about-container {
     padding: 20px; /* Reduce el padding en pantallas más pequeñas */
+    margin-bottom: 100px;
   }
 
   .about-text {
