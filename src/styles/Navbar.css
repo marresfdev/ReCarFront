@@ -14,7 +14,8 @@ html, body {
     z-index: 999; /* Asegura que la navbar esté por encima de otros elementos */
     min-height: 60px; /* Ajusta la altura según lo necesites */
     background-color: #343a40; /* Fondo oscuro */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra sutil */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.317); /* Agrega una sombra sutil */
+    border-radius: 0 0 7px 7px; /* Redondea solo los bordes inferiores */
   }
   
   .navbar .container-fluid {
@@ -22,7 +23,7 @@ html, body {
   }
   
   .navbar-brand img {
-    width: 110px; /* Ajusta el ancho del logo */
+    width: 80px; /* Ajusta el ancho del logo */
     height: auto; /* Mantén la proporción del logo */
   }
   

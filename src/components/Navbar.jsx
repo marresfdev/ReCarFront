@@ -1,15 +1,16 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Navbar.css';  // Asegúrate de importar el archivo CSS
+import '../styles/Navbar.css'; // Archivo de estilos
 import logo from "../assets/recarlogo.png"; // Ruta al logo de la empresa
+import { FaHome, FaBook, FaEnvelope, FaCalculator } from "react-icons/fa";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
-          <img src={logo} alt="Logo" /> {/* Ajusta el tamaño del logo si lo deseas */}
-          Bienvenido
+          <img src={logo} alt="Logo" />
+          ENLAZANDO TUS CAMINOS
         </a>
         <button
           className="navbar-toggler"
@@ -23,29 +24,28 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Sobre nosotros</a>
+              <a className="nav-link active" href="#">
+                <FaHome className="nav-icon" /> Sobre nosotros
+              </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Catálogo</a>
+              <a className="nav-link" href="#">
+                <FaBook className="nav-icon" /> Catálogo
+              </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Contactanos</a>
+              <a className="nav-link" href="#">
+                <FaEnvelope className="nav-icon" /> Contáctanos
+              </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">Simulador de crédito</a>
+              <a className="nav-link disabled" href="#" aria-disabled="true">
+                <FaCalculator className="nav-icon" /> Simulador de crédito
+              </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>

@@ -1,0 +1,81 @@
+/* Contacto.css */
+
+/* Estilo para el contenedor principal */
+#contact {
+    padding: 50px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
+  /* Estilo para las columnas de contacto */
+  .col-md-6 {
+    padding: 15px;
+  }
+  
+  /* Estilo para la columna derecha con la información de contacto */
+  .contact-info {
+    padding-left: 30px;
+  }
+  
+  .contact-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .contact-item p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .social ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .social ul li {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  
+  .social ul li a {
+    font-size: 24px;
+    color: #777;
+  }
+  
+  .social ul li a:hover {
+    color: #457B9D;
+  }
+  
+  /* Estilo para el formulario de contacto */
+  .section-title h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .section-title p {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+  .btn-custom {
+    background-color: #457B9D;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+  
+  

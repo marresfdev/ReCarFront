@@ -6,7 +6,7 @@ import carritoImg from '../assets/carro1.jpg';
 import carritoImg2 from '../assets/carro2.jpg';
 import carritoImg3 from '../assets/carro3.jpg';
 import carritoImg4 from '../assets/carro4.jpg';
-import carritoImg5 from '../assets/carro5.jpg';
+import carritoImg5 from '../assets/carro6.jpg';
 import carritoImg6 from '../assets/carro7.jpg';
 
 const Carousel = () => {
@@ -67,21 +67,21 @@ const Carousel = () => {
                     <img src={carritoImg} className="d-block w-100" alt="Slide 2" />
                     <div className="carousel-caption d-none d-md-block" style={{ color: "white", fontSize: "24px", padding: "10px", position: "absolute", top: "70%", left: "50%", transform: "translate(-50%, -50%)" }}>
                         <h2>Manejamos a crédito y de contado</h2>
-                        <p>Opciones flexibles para cada cliente.</p>
+                        <p>Opciones flexibles para cada cliente</p>
                     </div>
                 </div>
                 <div className="carousel-item" data-bs-interval="2500">
                     <img src={carritoImg2} className="d-block w-100" alt="Slide 3" />
                     <div className="carousel-caption d-none d-md-block" style={{ color: "white", fontSize: "24px", padding: "10px", position: "absolute", top: "70%", left: "50%", transform: "translate(-50%, -50%)" }}>
                         <h2>Somos socios ANCA</h2>
-                        <p>Compromiso y confianza en cada compra.</p>
+                        <p>Compromiso y confianza en cada compra</p>
                     </div>
                 </div>
                 <div className="carousel-item" data-bs-interval="2500">
                     <img src={carritoImg4} className="d-block w-100" alt="Slide 4" />
                     <div className="carousel-caption d-none d-md-block" style={{ color: "white", fontSize: "24px", padding: "10px", position: "absolute", top: "70%", left: "50%", transform: "translate(-50%, -50%)" }}>
                         <h2>Opciones con o sin buro de crédito</h2>
-                        <p>Encuentra el plan que mejor se adapte a ti.</p>
+                        <p>Encuentra el plan que mejor se adapte a ti</p>
                     </div>
                 </div>
                 <div className="carousel-item" data-bs-interval="2500">

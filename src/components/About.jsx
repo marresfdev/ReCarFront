@@ -29,6 +29,7 @@ const About = (props) => {
                   <ul>
                     <li>Financiamiento flexible adaptado a tus necesidades.</li>
                     <li>Amplia variedad de vehículos para todos los gustos.</li>
+                    <li>Garantía en trasmisión y motor.</li>
                     <li>Somos socios de ANCA, asegurando transacciones confiables.</li>
                     <li>Equipo comprometido con la satisfacción del cliente.</li>
                     <li>Asesoramiento personalizado para encontrar el auto ideal.</li>

@@ -7,7 +7,7 @@
   margin: 10px; /* Margen de 10px a cada lado */
   border-radius: 15px; /* Bordes redondeados */
   background-color: #ffffff; /* Fondo blanco */
-  box-shadow: 0 4px 10px #00000069; /* Sombra sutil debajo */
+  box-shadow: 0 4px 10px #00000024; /* Sombra sutil debajo */
   width: calc(100% - 200px); /* Ocupa todo el ancho menos 50px de margen a cada lado */
   margin-left: auto;
   margin-right: auto; /* Centra el contenedor */
