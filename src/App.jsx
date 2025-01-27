@@ -4,7 +4,7 @@ import Carousel from "./components/Carousel";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Catalogo from "./components/Catalogo";
-//import './App.css';  // Asegúrate de usar la ruta correcta según la ubicación del archivo CSS
+import './App.css';  // Asegúrate de usar la ruta correcta según la ubicación del archivo CSS
 
 //import Simulador from "./pages/Simulador";
 //import SobreNosotros from "./pages/SobreNosotros";

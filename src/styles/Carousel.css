@@ -9,7 +9,7 @@
 }
 
 body {
-    padding-top: 1200px;
+    padding-top: 1600px; /* Esto ajustará el padding al 20% de la altura de la pantalla */
 }
   
 /* Ajuste de las imágenes */

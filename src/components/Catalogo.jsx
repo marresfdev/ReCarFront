@@ -13,7 +13,15 @@ const Catalogo = () => {
     { id: 5, name: "Carro 5", price: "$20,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
     { id: 6, name: "Carro 6", price: "$25,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
     { id: 7, name: "Carro 7", price: "$30,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
-    { id: 8, name: "Carro 8", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" }
+    { id: 8, name: "Carro 8", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 9, name: "Carro 9", price: "$20,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 10, name: "Carro 10", price: "$25,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 11, name: "Carro 11", price: "$30,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 12, name: "Carro 12", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 13, name: "Carro 13", price: "$20,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 14, name: "Carro 14", price: "$25,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 15, name: "Carro 15", price: "$30,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 16, name: "Carro 16", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" }
   ];
 
   return (
@@ -21,6 +29,7 @@ const Catalogo = () => {
     <div className="container-fluid mt-5">
       <div className="row">
         <h1><center>Nuestros autos</center></h1>
+        <p></p>
         {cars.map((car) => (
           <div key={car.id} className="col-md-3 mb-4">
             <div className="card">
