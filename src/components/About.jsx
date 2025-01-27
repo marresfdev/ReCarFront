@@ -5,28 +5,29 @@ import recarLogo from "../assets/recarequipo2.jpg";
 const About = (props) => {
   return (
     <div id="about">
-      <div className="about-container">
-        <div className="container">
-          <div className="row">
-            {/* Columna de la imagen */}
-            <div className="col-md-3">
-              <img
-                src={props.image || recarLogo} // Imagen predeterminada si no hay una imagen
-                className="img-responsive about-img"
-                alt="About us"
-              />
-            </div>
             {/* Columna del texto */}
-            <div className="col-md-9">
-              <div className="about-text">
-                <h2>Sobre Nosotros</h2>
+            <h1>Sobre Nosotros</h1>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <p>¿Quiénes somos?</p>
+                </div>
+                <div class="card-back">
                 <p>
                   En Recar Motors, nos dedicamos a ofrecer soluciones accesibles y confiables para la compra de vehículos. Somos una agencia de autos especializada en ventas a crédito, brindando a nuestros clientes la posibilidad de adquirir el auto de sus sueños de manera sencilla y segura.
                 </p>
                 <p>
                   Como orgullosos socios de ANCA, garantizamos la transparencia y profesionalismo en cada una de nuestras transacciones. Nuestro equipo se esfuerza día a día por brindar una atención personalizada que supera las expectativas de nuestros clientes.
                 </p>
-                <h3>¿Por qué elegirnos?</h3>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-front">
+                  <p>¿Por qué elegirnos?</p>
+                </div>
+                <div class="card-back">
                 <ul>
                   <li>Financiamiento flexible adaptado a tus necesidades.</li>
                   <li>Amplia variedad de vehículos para todos los gustos.</li>
@@ -35,11 +36,9 @@ const About = (props) => {
                   <li>Equipo comprometido con la satisfacción del cliente.</li>
                   <li>Asesoramiento personalizado para encontrar el auto ideal.</li>
                 </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
