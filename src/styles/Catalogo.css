@@ -1,21 +1,122 @@
-/* Contenedor de todo el contenido con márgenes laterales pequeños */
+/* Catalogo.css */
+
+/* Asegurar que las tarjetas se adapten al tamaño de la pantalla */
+.card {
+    width: 100%;
+    margin-bottom: 1.5rem; /* Espacio entre las tarjetas */
+}
+
+/* Centrado del encabezado */
+.custom-header {
+    text-align: center; /* Centra el texto */
+    margin-bottom: 10px; /* Ajusta el espacio debajo del título */
+    margin-top: 20px; /* Espacio superior */
+}
+
+/* Asegurar que las imágenes no se deformen */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Asegurar que las tarjetas se comporten bien en pantallas pequeñas */
 .container-fluid {
     margin: 0;
-    padding: 0 15px;  /* Añadir pequeño margen a los lados */
-  }
-  
-  /* Hacer que las tarjetas ocupen el 100% de la columna */
-  .card {
+    padding: 0 15px; /* Márgenes laterales */
+}
+
+/* Asegura que las columnas estén distribuidas uniformemente y centradas */
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas */
+}
+
+/* Opcionalmente, agregar márgenes en dispositivos más pequeños */
+@media (max-width: 768px) {
+    .col-md-3 {
+        width: 100%; /* Las tarjetas ocupan todo el ancho en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .col-md-3 {
+        width: 100%; /* Las tarjetas ocupan todo el ancho en pantallas extra pequeñas */
+    }
+}
+
+.card {
+    position: relative;
+    width: 11.875em;
+    height: 16.5em;
+    box-shadow: 0px 1px 13px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 120ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 0.5em;
+    padding-bottom: 3.4em;
+}
+
+.card::after {
+    content: "Visualizar";
+    position: absolute;
+    left: 0;
+    bottom: -70px;
+    background: #1f0365;
+    color: #fff;
+    height: 2.8em;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho de la tarjeta */
+    transition: all 80ms;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+.card .title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0.625em;
+    bottom: 1.875em;
+    font-weight: 400;
+    color: #000;
+}
+
+.card .price {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 0.9em;
+    position: absolute;
+    left: 0.625em;
+    bottom: 0.625em;
+    color: #000;
+}
+
+.card:hover::after {
+    bottom: 0;
+    opacity: 1;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+.card:active::after {
+    content: "Added !";
+    height: 3.125em;
+}
+
+.text {
+    max-width: 55px;
+}
+
+.image {
+    background: rgb(241, 241, 241);
     width: 100%;
-  }
-  
-  /* Las imágenes dentro de las tarjetas ocupan todo el ancho */
-  .card-img-top {
-    width: 100%;
-  }
-  
-  /* Asegurar que el contenido de la tarjeta no esté pegado a los bordes */
-  .card-body {
-    padding: 15px;
-  }
-  
+    height: 100%;
+    display: grid;
+    place-items: center;
+}

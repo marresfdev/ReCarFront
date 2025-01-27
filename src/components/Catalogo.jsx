@@ -13,28 +13,33 @@ const Catalogo = () => {
     { id: 5, name: "Carro 5", price: "$20,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
     { id: 6, name: "Carro 6", price: "$25,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
     { id: 7, name: "Carro 7", price: "$30,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
-    { id: 8, name: "Carro 8", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" }
+    { id: 8, name: "Carro 8", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 9, name: "Carro 9", price: "$35,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 10, name: "Carro 10", price: "$20,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 11, name: "Carro 11", price: "$25,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" },
+    { id: 12, name: "Carro 12", price: "$30,000", image: "https://cimg3.ibsrv.net/cimg/www.autocreditosya.com/1200x675_100/207/DG022_047DUt0lrurp17jddtid181af94jjsf-705207.jpg" }
   ];
 
   return (
     <div id="catalogo">
-    <div className="container-fluid mt-5">
-      <div className="row">
-        <h1><center>Nuestros autos</center></h1>
-        {cars.map((car) => (
-          <div key={car.id} className="col-md-3 mb-4">
-            <div className="card">
-              <img src={car.image} alt={car.name} className="card-img-top" />
-              <div className="card-body">
-                <h5 className="card-title">{car.name}</h5>
-                <p className="card-text">{car.price}</p>
-                <a href="#" className="btn btn-primary">Ver más</a>
+      <div className="container-fluid mt-5">
+        <div className="row">
+          <h1 className="custom-header"><center>Nuestros autos</center></h1>
+          <p></p>
+          {cars.map((car) => (
+            <div key={car.id} className="col-md-3 col-12 mb-4"> {/* Responsivo: col-12 para pantallas pequeñas */}
+              <div className="card">
+                <div className="image">
+                  <img src={car.image} alt={car.name} className="card-img-top" />
+                  <span className="text">{car.name}</span>
+                </div>
+                <span className="title">{car.name}</span>
+                <span className="price">{car.price}</span>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };

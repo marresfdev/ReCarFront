@@ -19,7 +19,8 @@ const About = (props) => {
             {/* Columna del texto */}
             <div className="col-md-9">
               <div className="about-text">
-                <h2>Sobre Nosotros</h2>
+                <h2> Sobre Nosotros </h2>
+                <br />
                 <p>
                   En Recar Motors, nos dedicamos a ofrecer soluciones accesibles y confiables para la compra de vehículos. Somos una agencia de autos especializada en ventas a crédito, brindando a nuestros clientes la posibilidad de adquirir el auto de sus sueños de manera sencilla y segura.
                 </p>
@@ -28,6 +29,7 @@ const About = (props) => {
                 </p>
                 <h3>¿Por qué elegirnos?</h3>
                 <ul>
+                  <br />
                   <li>Financiamiento flexible adaptado a tus necesidades.</li>
                   <li>Amplia variedad de vehículos para todos los gustos.</li>
                   <li>Garantía en trasmisión y motor.</li>

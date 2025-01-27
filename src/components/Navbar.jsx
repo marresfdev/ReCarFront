@@ -27,23 +27,27 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
           <li className="nav-item">
               <a className="nav-link" href="#catalogo">
-                <FaCar className="nav-icon" /> Catálogo
+                Catálogo
               </a>
+              <FaCar className="nav-icon" />
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#about">
-                <FaHome className="nav-icon" /> Sobre nosotros
+                Sobre nosotros
               </a>
+              <FaHome className="nav-icon" />
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-                <FaEnvelope className="nav-icon" /> Contáctanos
+                Contáctanos
               </a>
+              <FaEnvelope className="nav-icon" />
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <FaCalculator className="nav-icon" /> Simulador de crédito
+                Simulador de crédito
               </a>
+              <FaCalculator className="nav-icon" />
             </li>
           </ul>
         </div>
