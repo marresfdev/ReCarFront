@@ -89,7 +89,7 @@
   flex: 1; /* Cada columna toma el mismo ancho */
   text-align: justify; /* Justifica el texto */
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.422); /* Fondo semi-transparente opcional */
+  background-color: rgba(13, 4, 65, 0.662); /* Fondo semi-transparente opcional */
   border-radius: 12px; /* Bordes redondeados */
   font-size: 18px; /* Cambia el tamaño de la fuente aquí (puedes ajustar el valor) */
 }
