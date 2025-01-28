@@ -16,35 +16,39 @@
   
   /* Estilo para la columna derecha con la información de contacto */
   .contact-info {
-    padding-left: 30px;
+    text-align: left; /* Alinea todo el texto de esta sección a la izquierda */
   }
-  
+
   .contact-info h3 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
   }
-  
+
   .contact-item p {
-    font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Añade espacio entre los párrafos */
+  }
+  
+  .social {
+    text-align: center; /* Mantén los iconos centrados */
   }
   
   .social ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+    padding-left: 0; /* Elimina el padding por defecto */
+    list-style-type: none; /* Elimina los puntos de la lista */
   }
   
   .social ul li {
-    display: inline-block;
-    margin-right: 15px;
+    display: inline-block; /* Hace que los iconos estén en línea */
+    margin-right: 15px; /* Espacio entre los iconos */
   }
   
   .social ul li a {
-    font-size: 24px;
-    color: #777;
-  }
+    font-size: 60px; /* Cambia el tamaño de los iconos */
+    color: #000; /* Puedes ajustar el color si es necesario */
+    margin-right: 60px;
+    margin-left: 70px;
+  }  
   
   .social ul li a:hover {
     color: #457B9D;
@@ -71,7 +75,7 @@
   }
   
   .btn-custom {
-    background-color: #457B9D;
+    background-color: rgba(6, 28, 60, 0.895);
     color: white;
     border: none;
     padding: 15px 30px;

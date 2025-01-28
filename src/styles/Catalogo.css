@@ -1,7 +1,7 @@
 /* Contenedor de todo el contenido con márgenes laterales pequeños */
 .container-fluid {
     margin: 0;
-    padding: 0 15px;  /* Añadir pequeño margen a los lados */
+    padding: 0 5px;  /* Añadir pequeño margen a los lados */
   }
   
   /* Hacer que las tarjetas ocupen el 100% de la columna */
@@ -17,5 +17,13 @@
   /* Asegurar que el contenido de la tarjeta no esté pegado a los bordes */
   .card-body {
     padding: 15px;
+  }
+  
+  .btn-custom {
+    background-color: rgba(6, 28, 60, 0.895);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
   }
   

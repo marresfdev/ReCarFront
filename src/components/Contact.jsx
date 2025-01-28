@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Contact.css'; // Asegúrate de tener este archivo CSS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import "../styles/Contact.css"
 
 const initialState = {
@@ -51,8 +51,8 @@ const Contact = (props) => {
             <div className="section-title">
               <h2>Contáctanos</h2>
               <p>
-                Por favor llene el siguiente formulario para mandarnos un email, estaremos en
-                contacto con usted lo más pronto posible.
+                Si tiene alguna duda, comuniquese con nosotros enviando un correo y estaremos en contacto lo más 
+                pronto posible, gracias.
               </p>
             </div>
             <form name="sentMessage" onSubmit={handleSubmit}>
@@ -107,44 +107,43 @@ const Contact = (props) => {
           {/* Parte derecha: información de contacto y redes sociales */}
           <div className="col-md-5 contact-info">
             <h2></h2>
-            <h3>Información de contacto</h3>
+            <h2><center>Información de contacto</center></h2>
+            <br></br>
             <div className="contact-item">
-              <p>
+              <p><center>
                 <span>
-                  <i className="fa fa-map-marker"></i> Av. 5 de Febrero 2121, 76120 Santiago de Querétaro, Querétaro
+                  <i className="fa fa-map-marker"></i>      Av. 5 de Febrero 2121, 76120 Santiago de Querétaro, Querétaro
                 </span>
+                </center></p>
+            </div>
+            <div className="contact-item">
+              <p>
+                <span><center>
+                  <i className="fa fa-phone"></i>         Phone
+                  </center></span>{" "}
               </p>
             </div>
             <div className="contact-item">
               <p>
-                <span>
-                  <i className="fa fa-phone"></i> Phone
-                </span>{" "}
+                <span><center>
+                <i className="fa fa-envelope"></i>         Email
+                </center></span>{" "}
               </p>
             </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                <i className="fa fa-envelope-o"></i> Email
-                </span>{" "}
-              </p>
-            </div>
+            
 
             <div className="social">
+              <br></br>
+            <h4><center>Visita nuestras redes sociales para estar al tanto de nuestras promociones</center></h4>
               <ul>
                 <li>
-                  <a href={props.data ? props.data.facebook : "#"}>
+                  <a href={props.data ? props.data.facebook : "https://www.facebook.com/RecarMotorsQro"}>
                     <FontAwesomeIcon icon={faFacebook} />
                   </a>
                 </li>
                 <li>
-                  <a href={props.data ? props.data.twitter : "#"}>
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </li>
-                <li>
-                  <a href={props.data ? props.data.youtube : "#"}>
-                    <FontAwesomeIcon icon={faYoutube} />
+                  <a href={props.data ? props.data.twitter : "https://www.instagram.com/recarmotorsqueretaro"}>
+                    <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>
               </ul>
