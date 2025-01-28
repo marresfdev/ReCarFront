@@ -41,7 +41,7 @@ const Simulador = () => {
         <form>
           <div className="mb-3">
             <label htmlFor="firstName" className="form-label">
-              First Name
+              Precio del vehiculo
             </label>
             <input
               type="text"
@@ -53,7 +53,7 @@ const Simulador = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="lastName" className="form-label">
-              Last Name
+              Plazo 
             </label>
             <input
               type="text"
@@ -65,7 +65,19 @@ const Simulador = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
-              Email
+              Enganche
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="Enter a valid email address"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Tasa de interes
             </label>
             <input
               type="email"
@@ -77,13 +89,13 @@ const Simulador = () => {
           </div>
           <div className="mb-3">
             <label htmlFor="message" className="form-label">
-              Message
+              Resultado
             </label>
             <textarea
               className="form-control"
               id="message"
               rows="4"
-              placeholder="Enter your message"
+              placeholder="Pago y mensualidades"
               required
             ></textarea>
           </div>
