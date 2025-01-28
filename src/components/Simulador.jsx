@@ -87,20 +87,8 @@ const Simulador = () => {
               required
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="message" className="form-label">
-              Resultado
-            </label>
-            <textarea
-              className="form-control"
-              id="message"
-              rows="4"
-              placeholder="Pago y mensualidades"
-              required
-            ></textarea>
-          </div>
-          <div className="text-center">
-            <button
+          <br></br>
+          <button
               type="submit"
               className="btn btn-light"
               style={{
@@ -116,9 +104,28 @@ const Simulador = () => {
               onMouseOver={(e) => (e.target.style.backgroundColor = "#d1e9ff")}
               onMouseOut={(e) => (e.target.style.backgroundColor = "#f0f8ff")}
             >
-              Submit
+                 Calcular
             </button>
-          </div>
+            <br></br>
+            <br></br>
+            <div className="mb-3">
+                <label htmlFor="message" className="form-label">
+                Resultado
+                </label>
+                <textarea
+                className="form-control"
+                id="message"
+                rows="4"
+                placeholder="Pago y mensualidades"
+                required
+                ></textarea>
+            </div>
+            <div className="text-center">
+                <br></br>
+                <label htmlFor="message" className="form-label">
+                    Si gustas conocer tu credito y tasa de interés de manera más exacta haznos envio de tu INE y tu correo y nos pondremos en contacto contigo
+                </label>
+            </div>
         </form>
       </div>
     </section>
