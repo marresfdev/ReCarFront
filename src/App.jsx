@@ -4,6 +4,7 @@ import Carousel from "./components/Carousel";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Catalogo from "./components/Catalogo";
+import Simulador from "./components/Simulador"
 import './App.css';  // Asegúrate de usar la ruta correcta según la ubicación del archivo CSS
 
 function App() {
@@ -23,6 +24,11 @@ function App() {
         <div className="contact-container">
           <Contact />
         </div>
+
+        <div className="contact-container">
+          <Simulador />
+        </div>
+
       </main>
     </>
   );

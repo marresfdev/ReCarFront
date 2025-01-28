@@ -41,7 +41,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="#simulador">
                 <FaCalculator className="nav-icon" /> Simulador de crédito
               </a>
             </li>

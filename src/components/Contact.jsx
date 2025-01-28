@@ -113,21 +113,28 @@ const Contact = (props) => {
             <div className="contact-item">
               <p><center>
                 <span>
-                  <i className="fa fa-map-marker"></i>      Av. 5 de Febrero 2121, 76120 Santiago de Querétaro, Querétaro
+                <i class="fa-solid fa-location-dot"></i>      Av. 5 de Febrero 2121, 76120 Santiago de Querétaro, Querétaro
                 </span>
                 </center></p>
             </div>
             <div className="contact-item">
               <p>
                 <span><center>
-                  <i className="fa fa-phone"></i>         Phone
+                  <i className="fa fa-phone"></i>         +52 442 604 8658
                   </center></span>{" "}
               </p>
             </div>
             <div className="contact-item">
               <p>
                 <span><center>
-                <i className="fa fa-envelope"></i>         Email
+                <i className="fa fa-envelope"></i>         gte.ventas@recarmotors.com
+                </center></span>{" "}
+              </p>
+            </div>
+            <div className="contact-item">
+              <p>
+                <span><center>
+                <i class="fa-brands fa-whatsapp"></i>         +52 442 604 8658
                 </center></span>{" "}
               </p>
             </div>
