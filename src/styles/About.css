@@ -32,6 +32,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  text-align: justify; /* Justifica el texto en la parte frontal y trasera */
 }
 
 .card-front {
@@ -48,7 +49,7 @@
   border-radius: 20px;
   font-size: 24px;
   transform: rotateY(0deg);
-  text-align: center; /* Alinea el texto centrado */
+  text-align: justify; /* Justifica el texto en la parte frontal */
   padding: 20px; /* Espaciado interno */
 }
 
@@ -62,4 +63,37 @@
   justify-content: center;
   font-size: 24px;
   transform: rotateY(180deg);
+  padding: 20px;
+}
+
+.card-back p,
+.card-front p {
+  margin: 10px 0; /* Agrega un margen para separar los párrafos */
+}
+
+.card-back ul {
+  margin: 0; /* Asegúrate de que la lista no tenga márgenes adicionales */
+  padding: 0; /* Elimina el relleno de la lista */
+  list-style-position: inside; /* Alinea los puntos de la lista dentro del contenedor */
+}
+
+.quienes-somos-container {
+  display: flex;
+  justify-content: space-between; /* Divide el contenido en dos columnas */
+  gap: 20px; /* Espacio entre las columnas */
+  margin: 20px 0;
+}
+
+.quienes-somos-left,
+.quienes-somos-right {
+  flex: 1; /* Cada columna toma el mismo ancho */
+  text-align: justify; /* Justifica el texto */
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.422); /* Fondo semi-transparente opcional */
+  border-radius: 12px; /* Bordes redondeados */
+  font-size: 18px; /* Cambia el tamaño de la fuente aquí (puedes ajustar el valor) */
+}
+
+#about h1 {
+  color: #000; /* Color negro */
 }
