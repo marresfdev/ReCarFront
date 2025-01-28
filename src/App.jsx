@@ -22,11 +22,11 @@ function App() {
         </div>
 
         <div className="contact-container">
-          <Contact />
+          <Simulador />
         </div>
 
         <div className="contact-container">
-          <Simulador />
+          <Contact />
         </div>
 
       </main>

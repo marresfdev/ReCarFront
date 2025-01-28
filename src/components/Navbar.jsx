@@ -36,13 +36,13 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact">
-                <FaEnvelope className="nav-icon" /> Contáctanos
+              <a className="nav-link" href="#simulador">
+                <FaCalculator className="nav-icon" /> Simulador de crédito
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#simulador">
-                <FaCalculator className="nav-icon" /> Simulador de crédito
+              <a className="nav-link" href="#contact">
+                <FaEnvelope className="nav-icon" /> Contáctanos
               </a>
             </li>
           </ul>
