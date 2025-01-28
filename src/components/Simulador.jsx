@@ -19,7 +19,7 @@ const Simulador = () => {
         className="container"
         style={{
           maxWidth: "600px",
-          backgroundColor: "#013a63", // Azul un poco más claro
+          backgroundColor: "#5d5555", // Azul un poco más claro
           borderRadius: "10px",
           padding: "30px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
@@ -36,7 +36,7 @@ const Simulador = () => {
           Consulta tu crédito
         </h2>
         <p className="text-center" style={{ marginBottom: "30px" }}>
-          Please fill out the form below to get started.
+        <strong>¿No sabes cuál será tu pago mensual aproximado? ¡Consúltalo aquí!</strong>
         </p>
         <form>
           <div className="mb-3">
