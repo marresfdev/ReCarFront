@@ -49,7 +49,8 @@ const Contact = (props) => {
           {/* Parte izquierda: formulario de contacto */}
           <div className="col-md-5">
             <div className="section-title">
-              <h2>Contáctanos</h2>
+              <h1>Contáctanos</h1>
+              <br></br>
               <p>
                 Si tiene alguna duda, comuniquese con nosotros enviando un correo y estaremos en contacto lo más 
                 pronto posible, gracias.
