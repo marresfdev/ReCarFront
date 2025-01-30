@@ -96,7 +96,7 @@ const Contact = (props) => {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-custom btn-lg">
+              <button type="submit" className="btn btn-customContact btn-lg">
                 Enviar mensaje
               </button>
             </form>

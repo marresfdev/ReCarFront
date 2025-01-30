@@ -23,7 +23,11 @@
     background-color: rgba(6, 28, 60, 0.895);
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 15px;
     font-size: 16px;
+    position: absolute;
+    bottom: 70px; /* Ajusta la posición a 30px del borde inferior */
+    left: 50%;
+    transform: translateX(-50%); /* Centrar horizontalmente */
+    width: 60%; /* Ajusta el tamaño según necesites */
   }
-  
