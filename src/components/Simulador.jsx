@@ -1,94 +1,132 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Simulador = () => {
+  const [precio, setPrecio] = useState("");
+  const [enganche, setEnganche] = useState("");
+  const [plazo, setPlazo] = useState("");
+  const [tasa, setTasa] = useState("");
+  const [resultado, setResultado] = useState("");
+
+  // Calcula el 10% del precio del vehículo
+  const calcularEngancheMinimo = () => {
+    return (precio * 0.1).toFixed(2);
+  };
+
+  // Función para manejar el envío del formulario (simulación)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí agregarías la lógica para calcular el crédito
+    setResultado("El cálculo de tu crédito se ha realizado con éxito.");
+  };
+
   return (
     <div id="simulador">
-        <h1>Simulador de crédito de ReCar Motors</h1>
-        <br></br>
-    <section
-      style={{
-        backgroundColor: "#001f3f", // Azul marino
-        padding: "50px 50px",
-        color: "#ffffff",
-        borderRadius: "10px",
-      }}
-      className="u-clearfix u-section-2"
-    >
-      <div
-        className="container"
+      <h1>Simulador de crédito de ReCar Motors</h1>
+      <br />
+      <section
         style={{
-          maxWidth: "600px",
-          backgroundColor: "#5d5555", // Azul un poco más claro
+          backgroundColor: "#001f3f", // Azul marino
+          padding: "50px 50px",
+          color: "#ffffff",
           borderRadius: "10px",
-          padding: "30px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
         }}
+        className="u-clearfix u-section-2"
       >
-        <h2
-          className="text-center"
+        <div
+          className="container"
           style={{
-            fontSize: "1.8rem",
-            marginBottom: "20px",
-            fontWeight: "bold",
+            maxWidth: "600px",
+            backgroundColor: "#5d5555", // Azul un poco más claro
+            borderRadius: "10px",
+            padding: "30px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
           }}
         >
-          Consulta tu crédito
-        </h2>
-        <p className="text-center" style={{ marginBottom: "30px" }}>
-        <strong>¿No sabes cuál será tu pago mensual aproximado? ¡Consúltalo aquí!</strong>
-        </p>
-        <form>
-          <div className="mb-3">
-            <label htmlFor="firstName" className="form-label">
-              Precio del vehiculo
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="firstName"
-              placeholder="Enter your first name"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="lastName" className="form-label">
-              Plazo 
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="lastName"
-              placeholder="Enter your last name"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Enganche
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="Enter a valid email address"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Tasa de interes
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="Enter a valid email address"
-              required
-            />
-          </div>
-          <br></br>
-          <button
+          <h2
+            className="text-center"
+            style={{
+              fontSize: "1.8rem",
+              marginBottom: "20px",
+              fontWeight: "bold",
+            }}
+          >
+            Consulta tu crédito
+          </h2>
+          <p className="text-center" style={{ marginBottom: "30px" }}>
+            <strong>¿No sabes cuál será tu pago mensual aproximado? ¡Consúltalo aquí!</strong>
+          </p>
+          <form onSubmit={handleSubmit}>
+            {/* Precio del vehículo */}
+            <div className="mb-3">
+              <label htmlFor="precio" className="form-label">
+                Precio del vehículo
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="precio"
+                placeholder="Ingresa el precio del vehículo"
+                value={precio}
+                onChange={(e) => setPrecio(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Enganche */}
+            <div className="mb-3">
+              <label htmlFor="enganche" className="form-label">
+                Enganche (mínimo del 10%)
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="enganche"
+                placeholder={`Enganche mínimo de ${calcularEngancheMinimo()}`}
+                value={enganche}
+                onChange={(e) => setEnganche(e.target.value)}
+                min={calcularEngancheMinimo()} // Establece el mínimo como el 10% del precio
+                required
+              />
+            </div>
+
+            {/* Plazo */}
+            <div className="mb-3">
+              <label htmlFor="plazo" className="form-label">
+                Plazo
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="plazo"
+                value={plazo}
+                onChange={(e) => setPlazo(e.target.value)}
+                placeholder="Ingresa el plazo en meses"
+                required
+              />
+            </div>
+
+            {/* Tasa de interés */}
+            <div className="mb-3">
+              <label htmlFor="tasa" className="form-label">
+                Situación en buro de crédito
+              </label>
+              <select
+                id="tasa"
+                className="form-control"
+                value={tasa}
+                onChange={(e) => setTasa(e.target.value)}
+                required
+              >
+                <option value="">Selecciona tu situación</option>
+                <option value="no_historial">No tengo historial</option>
+                <option value="bien">Bien</option>
+                <option value="regular">Regular</option>
+                <option value="mal">Mal</option>
+              </select>
+            </div>
+            <br></br>
+            <button
               type="submit"
               className="btn btn-light"
               style={{
@@ -104,31 +142,35 @@ const Simulador = () => {
               onMouseOver={(e) => (e.target.style.backgroundColor = "#d1e9ff")}
               onMouseOut={(e) => (e.target.style.backgroundColor = "#f0f8ff")}
             >
-                 Calcular
+              Calcular
             </button>
-            <br></br>
-            <br></br>
+            <br />
+            <br />
+            {/* Resultado */}
             <div className="mb-3">
-                <label htmlFor="message" className="form-label">
+              <label htmlFor="resultado" className="form-label">
                 Resultado
-                </label>
-                <textarea
-                className="form-control"
-                id="message"
-                rows="4"
-                placeholder="Pago y mensualidades"
-                required
-                ></textarea>
+              </label>
+              <br />
+              <label htmlFor="resultado" className="form-label">
+                {resultado}
+              </label>
             </div>
-            <div className="text-center">
-                <br></br>
-                <label htmlFor="message" className="form-label">
-                    Si gustas conocer tu credito y tasa de interés de manera más exacta haznos envio de tu INE y tu correo y nos pondremos en contacto contigo
-                </label>
+            <br />
+            {/* INE */}
+            <div className="mb-3">
+              <label htmlFor="resultado" className="form-label">
+                Si quieres saber tu tasa de interes más exacta, enviamos una copia de tu INE y un correo para
+                revisar tu buro de crédito y nos pondremos en contacto contigo lo más pronto posible.
+              </label>
+              <br />
+              <label htmlFor="resultado" className="form-label">
+                {resultado}
+              </label>
             </div>
-        </form>
-      </div>
-    </section>
+          </form>
+        </div>
+      </section>
     </div>
   );
 };

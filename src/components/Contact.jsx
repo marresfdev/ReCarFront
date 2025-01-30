@@ -51,8 +51,8 @@ const Contact = (props) => {
             <div className="section-title">
               <h1>Contáctanos</h1>
               <br></br>
-              <p>
-                Si tiene alguna duda, comuniquese con nosotros enviando un correo y estaremos en contacto lo más 
+              <p className="justified-text">
+                Si tiene alguna duda, comuniquese con nosotros enviando un correo o llamando a los números que aparecen a la derecha en pantalla, estaremos en contacto lo más 
                 pronto posible, gracias.
               </p>
             </div>

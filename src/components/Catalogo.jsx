@@ -4,20 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Catalogo.css'; // Archivo de estilos
 
 const Catalogo = () => {
-  // Estado para almacenar los autos
   const [cars, setCars] = useState([]);
 
-  // Realizar la solicitud GET cuando el componente se monte
   useEffect(() => {
-    axios.get("http://localhost:8080/api/getAllAutos") // Reemplaza con la URL de tu endpoint
+    axios.get("http://localhost:8080/api/getAllAutos")
       .then(response => {
-        setCars(response.data); // Guardar los datos de los autos en el estado
+        setCars(response.data);
         console.log(response.data);
       })
       .catch(error => {
         console.error("Hubo un error al obtener los autos:", error);
       });
-  }, []); // El arreglo vacío asegura que la solicitud solo se realice una vez
+  }, []);
 
   return (
     <div id="catalogo">
@@ -36,6 +34,8 @@ const Catalogo = () => {
                   <p className="card-text">
                     Precio: ${car.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
+                  {/* Campo oculto para almacenar el ID del auto */}
+                  <input type="hidden" value={car.id} />
                   <a href="#" className="btn btn-custom">Ver más</a>
                 </div>
               </div>
