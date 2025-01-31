@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";  // Importa Link para navegación
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Catalogo.css'; // Archivo de estilos
+import '../styles/Catalogo.css';
 
 const Catalogo = () => {
   const [cars, setCars] = useState([]);
@@ -10,7 +11,6 @@ const Catalogo = () => {
     axios.get("http://localhost:8080/api/getAllAutos")
       .then(response => {
         setCars(response.data);
-        console.log(response.data);
       })
       .catch(error => {
         console.error("Hubo un error al obtener los autos:", error);
@@ -22,7 +22,6 @@ const Catalogo = () => {
       <div className="container-fluid mt-5">
         <div className="row">
           <h1><center>Nuestros autos</center></h1>
-          <p></p>
           {cars.map((car) => (
             <div key={car.id} className="col-md-3 mb-4">
               <div className="card">
@@ -34,9 +33,8 @@ const Catalogo = () => {
                   <p className="card-text">
                     Precio: ${car.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
-                  {/* Campo oculto para almacenar el ID del auto */}
-                  <input type="hidden" value={car.id} />
-                  <a href="#" className="btn btn-custom">Ver más</a>
+                  {/* Botón con Link para redirigir a la página de detalles */}
+                  <Link to={`/auto/${car.id}`} className="btn btn-custom">Ver más</Link>
                 </div>
               </div>
             </div>
