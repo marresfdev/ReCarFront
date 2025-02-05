@@ -6,9 +6,6 @@ html, body {
   height: 100%;
 }
 
-body {
-  padding-top: 60px; /* Añadido para que el contenido no quede cubierto por la navbar */
-}
 
 .navbar {
   width: 100% !important; /* Asegura que ocupe todo el ancho */

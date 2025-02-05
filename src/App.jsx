@@ -7,20 +7,20 @@ import Catalogo from "./components/Catalogo";
 import Simulador from "./components/Simulador";
 import DetallesAutoPage from "./pages/DetallesAutoPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
+//import "./App.css";
 
 function App() {
   return (
     <Router>
       {/* Barra de Navegación */}
-      <Navbar />
-
+      
       {/* Definimos las Rutas */}
       <Routes>
         <Route
           path="/"
           element={
             <>
+            <Navbar />
               <Carousel />
               <Catalogo />
               <div className="about-container">

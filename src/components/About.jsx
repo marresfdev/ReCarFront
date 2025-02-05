@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/About.css"; // Asegúrate de que este archivo CSS esté bien vinculado
+import "../styles/About.css";
 import recarLogo from "../assets/recarequipo2.jpg";
 
 const About = (props) => {
