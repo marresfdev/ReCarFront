@@ -7,7 +7,7 @@ import Catalogo from "./components/Catalogo";
 import Simulador from "./components/Simulador";
 import DetallesAutoPage from "./pages/DetallesAutoPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-//import "./App.css";
+import "./App.css";
 
 function App() {
   return (

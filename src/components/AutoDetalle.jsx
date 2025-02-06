@@ -9,6 +9,7 @@ const AutoDetalle = () => {
   const { id } = useParams();
   const [auto, setAuto] = useState(null);
   const [imagenes, setImagenes] = useState([]);
+  const STD = "estandar";
 
   useEffect(() => {
     axios
@@ -39,15 +40,18 @@ const AutoDetalle = () => {
       </div>
 
       <div className="auto-detalle-right">
-        <h2>{auto.submarca} {auto.modelo}</h2>
-        <p className="auto-precio"><strong>Precio:</strong> ${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-        <p><strong>Color:</strong> {auto.color}</p>
-        <p><strong>Kilómetros:</strong> {auto.km} km</p>
-        <p><strong>Ubicación:</strong> {auto.ubicacion}</p>
-        <p><strong>Transmisión:</strong> {auto.transm}</p>
-        <p><strong>Estatus:</strong> {auto.estatus}</p>
-        <p><strong>Serie:</strong> {auto.serie}</p>
-        <p><strong>Descripción:</strong> {auto.descripcion || "No disponible"}</p>
+        <div class="card-autodetalle">
+        <div class="header">{auto.submarca} {auto.modelo}</div>
+        <div class="info">
+          <p class="title">LLevatelo desde: {auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p>{`Por tan solo $${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, con una transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}. Es ideal para ti.`} </p>
+        </div>
+        <div class="footer">
+          <p class="tag"></p>
+          <button type="button" class="button-lq">¡¡ME LO LLEVO!!</button>
+          </div>
+        </div>
+      
       </div>
     </div>
   );
