@@ -43,8 +43,8 @@ const AutoDetalle = () => {
         <div class="card-autodetalle">
         <div class="header">{auto.submarca} {auto.modelo}</div>
         <div class="info">
-          <p class="title">LLevatelo desde: {auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-          <p>{`Por tan solo $${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, con una transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}. Es ideal para ti.`} </p>
+          <p class="title">Llevatelo desde: {auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p>{`Por tan solo $${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} y con una transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}. Es ideal para ti.`} </p>
         </div>
         <div class="footer">
           <p class="tag"></p>

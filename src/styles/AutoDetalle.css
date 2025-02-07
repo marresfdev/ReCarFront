@@ -1,126 +1,100 @@
-.nombre-auto {
-  font-size: 40px;
-  font-weight: bold;
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
-
 .auto-detalle-container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 80px auto;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(100, 95, 95, 0.42);
-  border-radius: 15px;
-  align-items: stretch; /* Asegura que todos los elementos dentro del contenedor tengan la misma altura */
-}
-
-.auto-detalle-left {
-  flex: 2;
-  max-width: 60%;
-}
-
-.auto-detalle-left img {
-  width: 100%;
-  height: auto; /* Ajuste para mantener la proporción de las imágenes */
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.auto-detalle-right {
-  flex: 3;
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
-  background: #f8f8f8;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: 100%; /* Hace que el contenedor de la derecha ocupe toda la altura disponible */
-}
-
-.auto-detalle-right-first {
-  flex: 3;
-  width: 400px;
-  height: 100px;
-  align-content: left;
-  background: #9d0707;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.auto-detalle-right h2 {
-  margin-bottom: 15px;
-  color: #d9534f;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.auto-detalle-right p {
-  margin: 15px 0;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
-}
-
-.auto-precio {
-  font-size: 1.5rem;
-  color: #d9534f;
-  font-weight: bold;
-}
-
-.loading {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 50px;
-}
-
-
-
-/* From Uiverse.io by Yaya12085 */ 
-.card-autodetalle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 0.75rem;
-  background-color: white;
-  box-shadow: 0 4px 6px -1px rgb(255, 255, 255), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  position: relative;
-  font-size: 28px;
-  font-style: bold;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin-top: 1.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  border-radius: 0.3rem;
-  background-color: rgba(238, 239, 240, 0.877);
-  box-shadow: 0 10px 15px -3px rgba(140, 174, 189, 0.466), 0 4px 6px -4px rgba(74, 78, 82, 0.4);
-  height: 3rem;
-}
-
-.info {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.footer {
-  padding: 0.75rem;
-  border: 1px solid rgb(255, 255, 255);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgb(250, 251, 252);
-}
-
-.button-lq {
-  background-color: rgb(248, 250, 252);
-  box-shadow: 0 10px 15px -3px rgba(115, 127, 146, 0.331), 0 4px 6px -4px rgba(74, 78, 82, 0.4);
-  border-radius: 0.5rem;
-}
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 80px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(30, 24, 24, 0.304);
+    border-radius: 15px;
+    align-items: stretch; /* Asegura que todos los elementos dentro del contenedor tengan la misma altura */
+  }
+  
+  .auto-detalle-left {
+    flex: 2;
+    max-width: 60%;
+  }
+  
+  .auto-detalle-left img {
+    width: 100%;
+    height: auto; /* Ajuste para mantener la proporción de las imágenes */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auto-detalle-right {
+    flex: 3;
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Hace que el contenedor de la derecha ocupe toda la altura disponible */
+  }
+  
+  .card-autodetalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Asegura que la tarjeta ocupe todo el espacio disponible */
+    border-radius: 0.75rem;
+    background-color: white;
+    width: 100%; /* Para que la tarjeta ocupe todo el ancho disponible dentro del contenedor */
+    box-shadow: 0 4px 6px -1px rgb(255, 255, 255), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    position: relative;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 0.75rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 10px 15px -3px rgba(0, 5, 10, 0.249), 0 4px 6px -4px rgba(33, 150, 243, 0.4);
+    font-size: 25px;
+    font-style: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 3rem;
+  }
+  
+  .info {
+    padding: 1.5rem;
+    text-align: center;
+    flex-grow: 1; /* Esto asegura que el contenido se expanda para llenar el espacio disponible */
+  }
+  
+  .footer {
+    padding: 0.75rem;
+    border: 1px solid rgb(236 239 241);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .button-lq {
+    background-color: rgba(4, 38, 65, 0.692);
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(88, 92, 94, 0.5), 0 4px 6px -4px rgba(74, 78, 82, 0.4); /* Sombra más prominente */
+  }
+  
+  .button-lq:hover {
+    background-color: rgba(8, 42, 71, 0.9);
+    box-shadow: 0 12px 18px -5px rgba(88, 92, 94, 0.6), 0 6px 10px -6px rgba(74, 78, 82, 0.5);
+    transform: translateY(-3px);
+  }
+  
+  .button-lq:active {
+    transform: translateY(0);
+    box-shadow: 0 10px 15px -3px rgba(88, 92, 94, 0.5), 0 4px 6px -4px rgba(74, 78, 82, 0.4);
+  }
+  

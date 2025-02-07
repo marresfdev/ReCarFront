@@ -13,14 +13,14 @@ function App() {
   return (
     <Router>
       {/* Barra de Navegación */}
-      
+      <Navbar /> {/* Coloca aquí para que esté presente en todas las páginas */}
+
       {/* Definimos las Rutas */}
       <Routes>
         <Route
           path="/"
           element={
             <>
-            <Navbar />
               <Carousel />
               <Catalogo />
               <div className="about-container">
