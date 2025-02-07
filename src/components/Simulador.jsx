@@ -176,3 +176,18 @@ const Simulador = () => {
 };
 
 export default Simulador;
+
+
+{/*
+  anuales
+
+  Sin: 16.99% personas sin historial
+
+  Bien: 12.99% 
+
+  Regular: 17.99%
+
+  Mal: 30%
+  
+  
+  */}

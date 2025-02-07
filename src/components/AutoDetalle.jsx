@@ -47,8 +47,8 @@ const AutoDetalle = () => {
           <p>{`Por tan solo $${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, con una transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}. Es ideal para ti.`} </p>
         </div>
         <div class="footer">
-          <p class="tag"></p>
-          <button type="button" class="button-lq">¡¡ME LO LLEVO!!</button>
+          <p class="tag"><br></br>¿Necesitas más detalles? llamanos y te atenderemos sin problema</p>
+          <button type="button" class="button-lq"><i className="fa fa-phone"></i></button>
           </div>
         </div>
       

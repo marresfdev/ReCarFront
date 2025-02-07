@@ -120,7 +120,7 @@ const Contact = (props) => {
             <div className="contact-item">
               <p>
                 <span><center>
-                  <i className="fa fa-phone"></i>         +52 442 604 8658
+                  <i className="fa fa-phone"></i>         +52 442 325 0018
                   </center></span>{" "}
               </p>
             </div>
