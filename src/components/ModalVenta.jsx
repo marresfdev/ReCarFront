@@ -1,29 +1,35 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form, Input, Switch, notification } from 'antd';
 import '../styles/ModalVenta.css';
 
 const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => {
     const [form] = Form.useForm();
-    const [isModalVentaOpen, setIsModalVentaOpen] = useState(false);
+
+    // Función para manejar el envío del formulario
+    const onFinish = async (values) => {
+        console.log('Datos del formulario:', values);
+        try {
+            setLoading(true);
+            // Aquí puedes hacer una petición para guardar la oferta
+            notification.success({ message: 'Oferta creada con éxito' });
+            form.resetFields();
+            onCancel();
+        } catch (error) {
+            notification.error({ message: 'Error al crear la oferta' });
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleCancel = () => {
         form.resetFields();
         onCancel();
     };
 
-    const showModalVenta = () => {
-        setIsModalVentaOpen(true);
-    };
-
-    const handleCancelVenta = () => {
-        setIsModalVentaOpen(false);
-    };
-
     return (
         <Modal
             title="Agregar Oferta Educativa"
-            visible={isVisible}
+            open={isVisible} // Cambiado de `visible` a `open`
             onCancel={handleCancel}
             footer={null}
             centered
@@ -31,8 +37,8 @@ const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => 
             <Form
                 form={form}
                 name="add_ofertaEducativa"
-                onFinish={onFinish}
                 layout="vertical"
+                onFinish={onFinish} // Se agregó la función aquí
             >
                 <Form.Item
                     name="nombre"
