@@ -1,43 +1,26 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Carousel from "./components/Carousel";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Catalogo from "./components/Catalogo";
-import Simulador from "./components/Simulador";
-import DetallesAutoPage from "./pages/DetallesAutoPage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
+import { ConfigProvider, notification } from 'antd';
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+import './App.css';
+
+// Configuración de las notificaciones
+notification.config({
+  placement: 'bottomRight',
+});
 
 function App() {
   return (
-    <Router>
-      {/* Barra de Navegación */}
-      <Navbar /> {/* Coloca aquí para que esté presente en todas las páginas */}
-
-      {/* Definimos las Rutas */}
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Carousel />
-              <Catalogo />
-              <div className="about-container">
-                <About />
-              </div>
-              <div className="contact-container">
-                <Simulador />
-              </div>
-              <div className="contact-container">
-                <Contact />
-              </div>
-            </>
+    <BrowserRouter>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: "#000000" // Ajusta el color principal del tema
           }
-        />
-        <Route path="/auto/:id" element={<DetallesAutoPage />} />
-      </Routes>
-    </Router>
+        }}
+      >
+        <AppRoutes />
+      </ConfigProvider>
+    </BrowserRouter>
   );
 }
 

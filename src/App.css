@@ -1,9 +1,29 @@
+/* Estilo para la barra de navegación */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #343a40;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.317);
+  min-height: 60px; /* Ajusta según la altura de la navbar */
+}
+
+/* Contenedor principal con espacio superior */
+.content-container {
+  padding-top: 60px; /* Ajusta este valor si tu navbar tiene una altura diferente */
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
+/* Resto del código CSS (sin cambios) */
+
 
 .logo {
   height: 6em;
