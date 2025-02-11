@@ -21,13 +21,13 @@ const Simulador = () => {
   };
 
   return (
-    <div id="simulador">
+    <div id="simulador" style={{ width: "100%", padding: "0 15px" }}>
       <h1>Simulador de crédito de ReCar Motors</h1>
       <br />
       <section
         style={{
           backgroundColor: "#001f3f", // Azul marino
-          padding: "50px 50px",
+          padding: "50px 15px", // Ajustar padding
           color: "#ffffff",
           borderRadius: "10px",
         }}
@@ -36,7 +36,8 @@ const Simulador = () => {
         <div
           className="container"
           style={{
-            maxWidth: "600px",
+            width: "100%", // Hacer que el contenedor ocupe todo el ancho
+            maxWidth: "none", // Eliminar el maxWidth
             backgroundColor: "#5d5555", // Azul un poco más claro
             borderRadius: "10px",
             padding: "30px",
@@ -176,6 +177,7 @@ const Simulador = () => {
 };
 
 export default Simulador;
+
 
 
 {/*

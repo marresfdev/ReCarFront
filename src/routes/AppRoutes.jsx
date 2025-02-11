@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import About from "../components/About";
@@ -9,9 +9,16 @@ import SimuladorPage from "../pages/SimuladorPage";
 import DetallesAutoPage from "../pages/DetallesAutoPage";
 
 const AppRoutes = () => {
+  const location = useLocation();
+
+  // Verificar si la ruta actual es una de las rutas independientes
+  const showNavbar = !(
+    location.pathname === "/auto/:id" || location.pathname === "/simulador"
+  );
+
   return (
     <>
-      <Navbar />
+      {showNavbar && <Navbar />} {/* Solo mostrar Navbar si no es ruta independiente */}
       <Routes>
         {/* Página principal con secciones dentro de content-container */}
         <Route
