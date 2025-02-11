@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa"; // Importa el ícono de flecha
 import "bootstrap/dist/css/bootstrap.min.css";
+import Select from "react-select";  // Importa el componente Select de react-select
 
 const Simulador = () => {
   const [precio, setPrecio] = useState("");
@@ -9,7 +10,22 @@ const Simulador = () => {
   const [plazo, setPlazo] = useState("");
   const [tasa, setTasa] = useState("");
   const [resultado, setResultado] = useState("");
+  const [vehiculos, setVehiculos] = useState([]); // Estado para almacenar los vehículos
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Aquí obtienes los vehículos desde tu API
+    fetch("http://localhost:8080/api/getAllAutos")
+      .then((response) => response.json())
+      .then((data) => {
+        const vehicles = data.map((car) => ({
+          value: car.id,
+          label: `${car.submarca} ${car.color} ${car.modelo} - $${car.precio.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+        }));
+        setVehiculos(vehicles);
+      })
+      .catch((error) => console.error("Error al obtener los autos:", error));
+  }, []);
 
   const calcularEngancheMinimo = () => {
     return (precio * 0.1).toFixed(2);
@@ -33,7 +49,7 @@ const Simulador = () => {
           padding: "50px 50px",
           color: "#ffffff",
           borderRadius: "10px",
-          position: "relative", // Aseguramos que el contenedor tenga un position: relative
+          position: "relative",
         }}
         className="u-clearfix u-section-2"
       >
@@ -48,8 +64,8 @@ const Simulador = () => {
             cursor: "pointer",
             position: "absolute",
             top: "20px",
-            left: "20px", // Aseguramos que el botón esté en la esquina superior izquierda
-            zIndex: 1, // Aseguramos que el botón esté encima de otros elementos
+            left: "20px",
+            zIndex: 1,
           }}
           onMouseOver={(e) => (e.target.style.color = "#d1e9ff")}
           onMouseOut={(e) => (e.target.style.color = "#ffffff")}
@@ -86,14 +102,22 @@ const Simulador = () => {
               <label htmlFor="precio" className="form-label">
                 Precio del vehículo
               </label>
-              <input
-                type="number"
-                className="form-control"
-                id="precio"
-                placeholder="Ingresa el precio del vehículo"
-                value={precio}
-                onChange={(e) => setPrecio(e.target.value)}
+              <Select
+                options={vehiculos}
+                onChange={(selectedOption) => setPrecio(selectedOption.label.split(" - ")[1])}
+                placeholder="Selecciona un vehículo"
+                isSearchable
                 required
+                styles={{
+                  singleValue: (provided) => ({
+                    ...provided,
+                    color: "black",  // Cambia el color del texto de la selección
+                  }),
+                  option: (provided) => ({
+                    ...provided,
+                    color: "black",  // Cambia el color del texto de las opciones
+                  }),
+                }}
               />
             </div>
 
