@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa"; // Importa el ícono de flecha
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Simulador = () => {
@@ -7,38 +9,60 @@ const Simulador = () => {
   const [plazo, setPlazo] = useState("");
   const [tasa, setTasa] = useState("");
   const [resultado, setResultado] = useState("");
+  const navigate = useNavigate();
 
-  // Calcula el 10% del precio del vehículo
   const calcularEngancheMinimo = () => {
     return (precio * 0.1).toFixed(2);
   };
 
-  // Función para manejar el envío del formulario (simulación)
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí agregarías la lógica para calcular el crédito
     setResultado("El cálculo de tu crédito se ha realizado con éxito.");
   };
 
+  const handleGoHome = () => {
+    navigate("/"); // Redirige al home
+  };
+
   return (
-    <div id="simulador" style={{ width: "100%", padding: "0 15px" }}>
-      <h1>Simulador de crédito de ReCar Motors</h1>
+    <div id="simulador">
       <br />
       <section
         style={{
-          backgroundColor: "#001f3f", // Azul marino
-          padding: "50px 15px", // Ajustar padding
+          backgroundColor: "#001f3f",
+          padding: "50px 50px",
           color: "#ffffff",
           borderRadius: "10px",
+          position: "relative", // Aseguramos que el contenedor tenga un position: relative
         }}
         className="u-clearfix u-section-2"
       >
-        <div
-          className="container"
+        {/* Botón de regreso */}
+        <button
+          onClick={handleGoHome}
           style={{
-            width: "100%", // Hacer que el contenedor ocupe todo el ancho
-            maxWidth: "none", // Eliminar el maxWidth
-            backgroundColor: "#5d5555", // Azul un poco más claro
+            backgroundColor: "transparent",
+            border: "none",
+            color: "#ffffff",
+            fontSize: "2rem",
+            cursor: "pointer",
+            position: "absolute",
+            top: "20px",
+            left: "20px", // Aseguramos que el botón esté en la esquina superior izquierda
+            zIndex: 1, // Aseguramos que el botón esté encima de otros elementos
+          }}
+          onMouseOver={(e) => (e.target.style.color = "#d1e9ff")}
+          onMouseOut={(e) => (e.target.style.color = "#ffffff")}
+        >
+          <FaArrowLeft />
+        </button>
+
+        <h1>Simulador de crédito ReCar Motors</h1>
+        <br />
+        <div
+          className="container-fluid"
+          style={{
+            backgroundColor: "#5d5555",
             borderRadius: "10px",
             padding: "30px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
@@ -58,7 +82,6 @@ const Simulador = () => {
             <strong>¿No sabes cuál será tu pago mensual aproximado? ¡Consúltalo aquí!</strong>
           </p>
           <form onSubmit={handleSubmit}>
-            {/* Precio del vehículo */}
             <div className="mb-3">
               <label htmlFor="precio" className="form-label">
                 Precio del vehículo
@@ -74,7 +97,6 @@ const Simulador = () => {
               />
             </div>
 
-            {/* Enganche */}
             <div className="mb-3">
               <label htmlFor="enganche" className="form-label">
                 Enganche (mínimo del 10%)
@@ -86,12 +108,11 @@ const Simulador = () => {
                 placeholder={`Enganche mínimo de ${calcularEngancheMinimo()}`}
                 value={enganche}
                 onChange={(e) => setEnganche(e.target.value)}
-                min={calcularEngancheMinimo()} // Establece el mínimo como el 10% del precio
+                min={calcularEngancheMinimo()}
                 required
               />
             </div>
 
-            {/* Plazo */}
             <div className="mb-3">
               <label htmlFor="plazo" className="form-label">
                 Plazo
@@ -107,7 +128,6 @@ const Simulador = () => {
               />
             </div>
 
-            {/* Tasa de interés */}
             <div className="mb-3">
               <label htmlFor="tasa" className="form-label">
                 Situación en buro de crédito
@@ -126,7 +146,7 @@ const Simulador = () => {
                 <option value="mal">Mal</option>
               </select>
             </div>
-            <br></br>
+
             <button
               type="submit"
               className="btn btn-light"
@@ -147,7 +167,7 @@ const Simulador = () => {
             </button>
             <br />
             <br />
-            {/* Resultado */}
+
             <div className="mb-3">
               <label htmlFor="resultado" className="form-label">
                 Resultado
@@ -157,16 +177,11 @@ const Simulador = () => {
                 {resultado}
               </label>
             </div>
-            <br />
-            {/* INE */}
+
             <div className="mb-3">
               <label htmlFor="resultado" className="form-label">
                 Si quieres saber tu tasa de interes más exacta, enviamos una copia de tu INE y un correo para
                 revisar tu buro de crédito y nos pondremos en contacto contigo lo más pronto posible.
-              </label>
-              <br />
-              <label htmlFor="resultado" className="form-label">
-                {resultado}
               </label>
             </div>
           </form>
@@ -177,19 +192,3 @@ const Simulador = () => {
 };
 
 export default Simulador;
-
-
-
-{/*
-  anuales
-
-  Sin: 16.99% personas sin historial
-
-  Bien: 12.99% 
-
-  Regular: 17.99%
-
-  Mal: 30%
-  
-  
-  */}

@@ -6,12 +6,10 @@ import "../styles/SimuladorPage.css"; // Asegúrate de tener estilos específico
 
 const SimuladorPage = () => {
     return (
-        <>
-        <div>
+      <div className="simulador-page-container">
         <Simulador />
-        </div>
-        </>
+      </div>
     );
-};
+  };
 
 export default SimuladorPage;

@@ -1,9 +1,45 @@
+/* Asegúrate de que el body y html ocupen todo el alto de la pantalla */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Estilos para el contenedor principal de la página simulador */
 .simulador-page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ajusta la altura para que no sea enorme */
-    background-color: #9dc11ad7; /* Un color de fondo para distinguir la pantalla */
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  height: 100vh; /* Ocupa todo el alto de la pantalla */
+  background-color: #fefefe; /* Un color de fondo para distinguir la pantalla */
+  padding: 20px;
+  box-sizing: border-box; /* Asegura que el padding no se sume al tamaño total */
+}
+
+@media (max-width: 1199px) {
+  .simulador-page-container {
+    height: 100vh; /* Mantiene el alto al 100% en pantallas grandes */
   }
-  
+}
+
+@media (max-width: 991px) {
+  .simulador-page-container {
+    height: 100vh; /* Asegura que se mantenga a pantalla completa */
+    padding: 10px; /* Ajusta el padding en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 767px) {
+  .simulador-page-container {
+    flex-direction: column; /* Cambia la dirección del contenido en pantallas más pequeñas */
+    height: 100vh; /* Asegura que ocupe todo el alto */
+  }
+}
+
+@media (max-width: 575px) {
+  .simulador-page-container {
+    flex-direction: column; /* Alinea los elementos de forma vertical */
+    padding: 5px; /* Ajusta el padding */
+  }
+}
