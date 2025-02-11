@@ -28,7 +28,7 @@ const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => 
 
     return (
         <Modal
-            title="Agregar Oferta Educativa"
+            title="Ponte en contacto con nosotros"
             open={isVisible} // Cambiado de `visible` a `open`
             onCancel={handleCancel}
             footer={null}

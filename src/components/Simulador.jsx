@@ -5,12 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Select from "react-select";  // Importa el componente Select de react-select
 
 const Simulador = () => {
-  const [precio, setPrecio] = useState("");
+  const [precio, setPrecio] = useState(""); // Precio como un número
   const [enganche, setEnganche] = useState("");
   const [plazo, setPlazo] = useState("");
   const [tasa, setTasa] = useState("");
   const [resultado, setResultado] = useState("");
   const [vehiculos, setVehiculos] = useState([]); // Estado para almacenar los vehículos
+  const [error, setError] = useState(""); // Estado para manejar el mensaje de error
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const Simulador = () => {
         const vehicles = data.map((car) => ({
           value: car.id,
           label: `${car.submarca} ${car.color} ${car.modelo} - $${car.precio.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+          precio: car.precio, // Agregar precio como un valor numérico
         }));
         setVehiculos(vehicles);
       })
@@ -28,16 +30,29 @@ const Simulador = () => {
   }, []);
 
   const calcularEngancheMinimo = () => {
-    return (precio * 0.1).toFixed(2);
+    return (precio * 0.1).toFixed(2); // Usar el precio como un valor numérico para calcular el enganche
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validación del enganche
+    const engancheMinimo = parseFloat(calcularEngancheMinimo());
+    if (parseFloat(enganche) < engancheMinimo) {
+      setError(`El enganche debe ser mayor o igual al ${engancheMinimo} (10% del precio del vehículo).`);
+      return; // Detener el cálculo si el enganche es incorrecto
+    }
+
+    setError(""); // Limpiar el error si la validación es exitosa
     setResultado("El cálculo de tu crédito se ha realizado con éxito.");
   };
 
   const handleGoHome = () => {
     navigate("/"); // Redirige al home
+  };
+
+  const handleVehicleChange = (selectedOption) => {
+    setPrecio(selectedOption.precio); // Usar el precio numérico del vehículo seleccionado
   };
 
   return (
@@ -104,7 +119,7 @@ const Simulador = () => {
               </label>
               <Select
                 options={vehiculos}
-                onChange={(selectedOption) => setPrecio(selectedOption.label.split(" - ")[1])}
+                onChange={handleVehicleChange} // Función para manejar el cambio de vehículo
                 placeholder="Selecciona un vehículo"
                 isSearchable
                 required
@@ -136,6 +151,8 @@ const Simulador = () => {
                 required
               />
             </div>
+
+            {error && <div className="alert alert-danger">{error}</div>} {/* Mostrar mensaje de error */}
 
             <div className="mb-3">
               <label htmlFor="plazo" className="form-label">
