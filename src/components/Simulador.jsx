@@ -43,7 +43,14 @@ const Simulador = () => {
       return; // Detener el cálculo si el enganche es incorrecto
     }
 
-    setError(""); // Limpiar el error si la validación es exitosa
+    // Validación del plazo
+    const plazoNumerico = parseInt(plazo, 10); // Convertir el plazo a número
+    if (plazoNumerico < 12 || plazoNumerico > 60) {
+      setError("El plazo debe estar entre 12 y 60 meses.");
+      return; // Detener el cálculo si el plazo está fuera de rango
+    }
+
+    setError(""); // Limpiar el error si las validaciones son exitosas
     setResultado("El cálculo de tu crédito se ha realizado con éxito.");
   };
 
@@ -152,8 +159,6 @@ const Simulador = () => {
               />
             </div>
 
-            {error && <div className="alert alert-danger">{error}</div>} {/* Mostrar mensaje de error */}
-
             <div className="mb-3">
               <label htmlFor="plazo" className="form-label">
                 Plazo
@@ -168,6 +173,8 @@ const Simulador = () => {
                 required
               />
             </div>
+
+            {error && <div className="alert alert-danger">{error}</div>} {/* Mostrar mensaje de error */}
 
             <div className="mb-3">
               <label htmlFor="tasa" className="form-label">
