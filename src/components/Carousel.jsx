@@ -11,6 +11,7 @@ import carritoImg6 from '../assets/carro7.jpg';
 
 const Carousel = () => {
     return (
+        <div className="body-carousel">
         <div id="carouselExampleDark" className="carousel carousel-dark slide full-width-carousel" data-bs-ride="carousel">
             {/* Indicadores del carousel */}
             <div className="carousel-indicators">
@@ -119,6 +120,7 @@ const Carousel = () => {
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
             </button>
+        </div>
         </div>
     );
 };

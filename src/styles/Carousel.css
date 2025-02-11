@@ -8,8 +8,8 @@
     overflow: hidden; /* Evita que algo salga del contenedor */
 }
 
-body {
-    padding-top: 4700px; /* Esto ajustará el padding al 20% de la altura de la pantalla */
+.body-carousel {
+    padding-top: 7800px; /* Esto ajustará el padding al 20% de la altura de la pantalla */
 }
   
 /* Ajuste de las imágenes */

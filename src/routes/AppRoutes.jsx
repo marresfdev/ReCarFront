@@ -5,39 +5,37 @@ import Carousel from "../components/Carousel";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Catalogo from "../components/Catalogo";
-import Simulador from "../components/Simulador";
+import SimuladorPage from "../pages/SimuladorPage";
 import DetallesAutoPage from "../pages/DetallesAutoPage";
 
 const AppRoutes = () => {
   return (
     <>
-      {/* Barra de Navegación */}
       <Navbar />
-      
-      {/* Definición de Rutas */}
-      <div className="content-container">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Carousel />
+      <Routes>
+        {/* Página principal con secciones dentro de content-container */}
+        <Route
+          path="/"
+          element={
+            <div className="content-container">
+              <Carousel />
+              <section id="catalogo">
                 <Catalogo />
-                <div className="about-container">
-                  <About />
-                </div>
-                <div className="contact-container">
-                  <Simulador />
-                </div>
-                <div className="contact-container">
-                  <Contact />
-                </div>
-              </>
-            }
-          />
-          <Route path="/auto/:id" element={<DetallesAutoPage />} />
-        </Routes>
-      </div>
+              </section>
+              <section id="about">
+                <About />
+              </section>
+              <section id="contact">
+                <Contact />
+              </section>
+            </div>
+          }
+        />
+
+        {/* Rutas independientes, sin content-container */}
+        <Route path="/auto/:id" element={<DetallesAutoPage />} />
+        <Route path="/simulador" element={<SimuladorPage />} />
+      </Routes>
     </>
   );
 };

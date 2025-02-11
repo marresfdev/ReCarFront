@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navbar.css'; // Archivo de estilos
 import logo from "../assets/recarlogo.png"; // Ruta al logo de la empresa
 import { FaHome, FaCar, FaEnvelope, FaCalculator } from "react-icons/fa";
 
 const Navbar = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const section = document.querySelector(location.hash);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <img src={logo} alt="Logo" />
           ENLAZANDO TUS CAMINOS
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,7 +37,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li className="nav-item">
+            <li className="nav-item">
               <a className="nav-link" href="#catalogo">
                 <FaCar className="nav-icon" /> Catálogo
               </a>
@@ -36,7 +48,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#simulador">
+              <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
                 <FaCalculator className="nav-icon" /> Simulador de crédito
               </a>
             </li>

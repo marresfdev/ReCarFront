@@ -1,0 +1,9 @@
+.simulador-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Ajusta la altura para que no sea enorme */
+    background-color: #f5f5f5; /* Un color de fondo para distinguir la pantalla */
+    padding: 20px;
+  }
+  
