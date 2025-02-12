@@ -165,6 +165,7 @@ const Simulador = () => {
                   }
                 }}
                 required
+                style={{ textAlign: "center" }}
               />
             </div>
 
@@ -190,6 +191,7 @@ const Simulador = () => {
                 }}
                 placeholder="Ingresa el plazo en meses, debe estar entre un rango de 12 y 60"
                 required
+                style={{ textAlign: "center" }} // AÑADIR ESTA LÍNEA
               />
             </div>
 
@@ -206,6 +208,7 @@ const Simulador = () => {
                 value={tasa}
                 onChange={(e) => setTasa(e.target.value)}
                 required
+                style={{ textAlign: "center", textAlignLast: "center" }} // 🔹 Estilos agregados aquí
               >
                 <option value="">Selecciona tu situación</option>
                 <option value="no_historial">No tengo historial</option>
@@ -241,7 +244,7 @@ const Simulador = () => {
                 Resultado
               </label>
               <br />
-              <label htmlFor="resultado" className="form-label">
+              <label htmlFor="resultado" className="text-warning">
                 {resultado}
               </label>
             </div>
