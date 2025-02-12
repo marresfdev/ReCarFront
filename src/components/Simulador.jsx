@@ -12,6 +12,8 @@ const Simulador = () => {
   const [resultado, setResultado] = useState("");
   const [vehiculos, setVehiculos] = useState([]); // Estado para almacenar los vehículos
   const [error, setError] = useState(""); // Estado para manejar el mensaje de error
+  const [errorEnganche, setErrorEnganche] = useState("");
+  const [errorPlazo, setErrorPlazo] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,22 +37,24 @@ const Simulador = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     // Validación del enganche
     const engancheMinimo = parseFloat(calcularEngancheMinimo());
     if (parseFloat(enganche) < engancheMinimo) {
-      setError(`El enganche debe ser mayor o igual al ${engancheMinimo} (10% del precio del vehículo).`);
-      return; // Detener el cálculo si el enganche es incorrecto
+      setErrorEnganche(`El enganche debe ser mayor o igual a ${engancheMinimo}.`);
+      return;
     }
-
+  
     // Validación del plazo
-    const plazoNumerico = parseInt(plazo, 10); // Convertir el plazo a número
-    if (plazoNumerico < 12 || plazoNumerico > 60) {
-      setError("El plazo debe estar entre 12 y 60 meses.");
-      return; // Detener el cálculo si el plazo está fuera de rango
+    const plazoNumerico = parseInt(plazo, 10);
+    if (isNaN(plazoNumerico) || plazoNumerico < 12 || plazoNumerico > 60) {
+      setErrorPlazo("El plazo debe estar entre 12 y 60 meses.");
+      return;
     }
-
-    setError(""); // Limpiar el error si las validaciones son exitosas
+  
+    // Si pasa las validaciones, limpiar errores y mostrar el resultado
+    setErrorEnganche("");
+    setErrorPlazo("");
     setResultado("El cálculo de tu crédito se ha realizado con éxito.");
   };
 
@@ -153,11 +157,19 @@ const Simulador = () => {
                 id="enganche"
                 placeholder={`Enganche mínimo de ${calcularEngancheMinimo()}`}
                 value={enganche}
-                onChange={(e) => setEnganche(e.target.value)}
-                min={calcularEngancheMinimo()}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setEnganche(value);
+                  if (parseFloat(value) >= parseFloat(calcularEngancheMinimo())) {
+                    setErrorEnganche(""); // Limpia el error si el enganche es válido
+                  }
+                }}
                 required
               />
             </div>
+
+            {errorEnganche && <div className="text-warning">{errorEnganche}</div>}
+            <br />
 
             <div className="mb-3">
               <label htmlFor="plazo" className="form-label">
@@ -168,13 +180,21 @@ const Simulador = () => {
                 className="form-control"
                 id="plazo"
                 value={plazo}
-                onChange={(e) => setPlazo(e.target.value)}
-                placeholder="Ingresa el plazo en meses"
+                //onChange={(e) => setPlazo(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setPlazo(value);
+                  if (parseFloat(value) >= 12 || parseFloat(value) <= 60) {
+                    setErrorPlazo("");
+                  }
+                }}
+                placeholder="Ingresa el plazo en meses, debe estar entre un rango de 12 y 60"
                 required
               />
             </div>
 
-            {error && <div className="alert alert-danger">{error}</div>} {/* Mostrar mensaje de error */}
+            {errorPlazo && <div className="text-warning">{errorPlazo}</div>}
+            <br />
 
             <div className="mb-3">
               <label htmlFor="tasa" className="form-label">
