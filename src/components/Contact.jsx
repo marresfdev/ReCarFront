@@ -65,7 +65,7 @@ const Contact = (props) => {
                       id="name"
                       name="name"
                       className="form-control"
-                      placeholder="Name"
+                      placeholder="Nombre"
                       required
                       onChange={handleChange}
                     />
@@ -78,7 +78,7 @@ const Contact = (props) => {
                       id="email"
                       name="email"
                       className="form-control"
-                      placeholder="Email"
+                      placeholder="Correo"
                       required
                       onChange={handleChange}
                     />
@@ -91,7 +91,7 @@ const Contact = (props) => {
                   id="message"
                   className="form-control"
                   rows="4"
-                  placeholder="Message"
+                  placeholder="Mensaje"
                   required
                   onChange={handleChange}
                 ></textarea>

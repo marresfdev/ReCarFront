@@ -20,6 +20,17 @@ const AutoDetalle = () => {
     setIsModalVentaOpen(false);
   };
 
+  // Función para calcular el enganche
+  const calcularEnganche = (precio) => {
+    if (precio < 250000) {
+      return precio * 0.10; // 10% si el precio es menor a 250,000
+    } else if (precio >= 250000 && precio <= 350000) {
+      return precio * 0.20; // 20% si el precio está entre 250,000 y 350,000
+    } else {
+      return precio * 0.25; // 25% si el precio es mayor a 350,000
+    }
+  };
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/api/getAuto/${id}`)
@@ -35,6 +46,9 @@ const AutoDetalle = () => {
   if (!auto) {
     return <p className="loading">Cargando...</p>;
   }
+
+  // Calcular el enganche basado en el precio del auto
+  const enganche = calcularEnganche(auto.precio);
 
   return (
     <div className="auto-detalle-container">
@@ -52,8 +66,10 @@ const AutoDetalle = () => {
         <div className="card-autodetalle">
           <div className="header">{auto.submarca} {auto.modelo}</div>
           <div className="info">
-            <p className="title">Llévatelo desde: {auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
-            <p>{`Por tan solo $${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}, con una transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}. Es ideal para ti.`}</p>
+            <p>{`Con una transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}. Es ideal para ti.`}</p>
+            <p className="enganche">
+              {`Llévatelo desde: $${enganche.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} de enganche.`}
+            </p>
           </div>
           <div className="footer">
             <p className="tag"><br />¿Te interesa? Llámanos y te daremos más detalles sin compromiso</p>

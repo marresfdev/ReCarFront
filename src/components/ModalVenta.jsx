@@ -42,7 +42,7 @@ const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => 
             className="modal-venta"
         >
                 <div className="call-info">
-                    <p><strong> Llama al: </strong> <a href="tel:+4427172717" className="call-link">4427172717</a></p>
+                    <p><strong> Llama al: </strong> <a href="tel:+4427172717" className="call-link">442 604 8658</a></p>
                 </div>
                 <div className="call-info">
                     <p>O envianos un correo para más detalles sobre esta unidad.</p>
@@ -92,3 +92,5 @@ const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => 
 };
 
 export default ModalVenta;
+
+{/* marketing@recarmotors.com */}

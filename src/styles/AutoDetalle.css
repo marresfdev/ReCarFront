@@ -98,3 +98,9 @@
     box-shadow: 0 10px 15px -3px rgba(88, 92, 94, 0.5), 0 4px 6px -4px rgba(74, 78, 82, 0.4);
   }
   
+  .enganche {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff7f50; /* Un color llamativo para resaltar el enganche */
+  }
+  
