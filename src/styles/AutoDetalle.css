@@ -3,7 +3,7 @@
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
-    margin: 80px auto;
+    margin-top: 70px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(30, 24, 24, 0.304);
     border-radius: 15px;
@@ -101,6 +101,6 @@
   .enganche {
     font-size: 1.2em;
     font-weight: bold;
-    color: #ff7f50; /* Un color llamativo para resaltar el enganche */
+    color: #f41b10b1; /* Un color llamativo para resaltar el enganche */
   }
   

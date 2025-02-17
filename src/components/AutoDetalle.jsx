@@ -72,7 +72,7 @@ const AutoDetalle = () => {
             </p>
           </div>
           <div className="footer">
-            <p className="tag"><br />¿Te interesa? Llámanos y te daremos más detalles sin compromiso</p>
+            <p className="tag"><br /><strong>¿Te interesa? Llámanos y te daremos más detalles sin compromiso</strong></p>
             <button type="button" className="button-lq" onClick={showModalVenta}>
               <i className="fa fa-phone"></i>
             </button>
