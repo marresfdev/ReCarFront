@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";  // Importa Link para navegación
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Catalogo.css';
 
@@ -33,7 +33,7 @@ const Catalogo = () => {
                   <p className="card-text">
                     Desde: ${car.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </p>
-                  {/* Botón con Link para redirigir a la página de detalles */}
+                  {/* btn con link para redirigir a la pagina de detalles */}
                   <Link to={`/auto/${car.id}`} className="btn btn-custom">Ver más</Link>
                 </div>
               </div>

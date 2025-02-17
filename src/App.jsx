@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
 import './App.css';
 
-// Configuración de las notificaciones
 notification.config({
   placement: 'bottomRight',
 });

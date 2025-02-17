@@ -32,38 +32,46 @@ const Simulador = () => {
   }, []);
 
   const calcularEngancheMinimo = () => {
-    return (precio * 0.1).toFixed(2); // Usar el precio como un valor numérico para calcular el enganche
+    let porcentaje = 0.1; // Mínimo 10%
+  
+    if (precio >= 250000 && precio <= 350000) {
+      porcentaje = 0.2; // 20% si está entre 250,000 y 350,000
+    } else if (precio > 350000) {
+      porcentaje = 0.25; // 25% si es mayor a 350,000
+    }
+  
+    return (precio * porcentaje).toFixed(2);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   
-    // Validación del enganche
+    // Validación del enganche basado en el precio del vehículo
     const engancheMinimo = parseFloat(calcularEngancheMinimo());
     if (parseFloat(enganche) < engancheMinimo) {
-      setErrorEnganche(`El enganche debe ser mayor o igual a ${engancheMinimo}.`);
+      setErrorEnganche(`El enganche debe ser de al menos ${engancheMinimo}.`);
       return;
     }
   
     // Validación del plazo
     const plazoNumerico = parseInt(plazo, 10);
     if (isNaN(plazoNumerico) || plazoNumerico < 12 || plazoNumerico > 60) {
-      setErrorPlazo("El plazo debe estar entre 12 y 60 meses.");
+      setErrorPlazo("El plazo debe ser de entre 12 a 60 meses.");
       return;
     }
   
-    // Si pasa las validaciones, limpiar errores y mostrar el resultado
+    // Limpiar errores y continuar
     setErrorEnganche("");
     setErrorPlazo("");
     setResultado("El cálculo de tu crédito se ha realizado con éxito.");
   };
 
   const handleGoHome = () => {
-    navigate("/"); // Redirige al home
+    navigate("/");
   };
 
   const handleVehicleChange = (selectedOption) => {
-    setPrecio(selectedOption.precio); // Usar el precio numérico del vehículo seleccionado
+    setPrecio(selectedOption.precio); //precio del vehiculo seleccionado
   };
 
   return (
@@ -130,18 +138,19 @@ const Simulador = () => {
               </label>
               <Select
                 options={vehiculos}
-                onChange={handleVehicleChange} // Función para manejar el cambio de vehículo
+                onChange={handleVehicleChange} //cambio de vehiculo
                 placeholder="Selecciona un vehículo"
                 isSearchable
                 required
                 styles={{
                   singleValue: (provided) => ({
                     ...provided,
-                    color: "black",  // Cambia el color del texto de la selección
+                    color: "black", 
+                    textAlign: "left",
                   }),
                   option: (provided) => ({
                     ...provided,
-                    color: "black",  // Cambia el color del texto de las opciones
+                    color: "black",
                   }),
                 }}
               />
@@ -149,23 +158,22 @@ const Simulador = () => {
 
             <div className="mb-3">
               <label htmlFor="enganche" className="form-label">
-                Enganche (mínimo del 10%)
+                Enganche
               </label>
               <input
                 type="number"
                 className="form-control"
                 id="enganche"
-                placeholder={`Enganche mínimo de ${calcularEngancheMinimo()}`}
+                placeholder={`Ingresa el monto sin puntos ni comas (el enganche mínimo para la unidad seleccionada es de ${calcularEngancheMinimo()})`}
                 value={enganche}
                 onChange={(e) => {
                   const value = e.target.value;
                   setEnganche(value);
                   if (parseFloat(value) >= parseFloat(calcularEngancheMinimo())) {
-                    setErrorEnganche(""); // Limpia el error si el enganche es válido
+                    setErrorEnganche("");
                   }
                 }}
                 required
-                style={{ textAlign: "center" }}
               />
             </div>
 
@@ -189,9 +197,8 @@ const Simulador = () => {
                     setErrorPlazo("");
                   }
                 }}
-                placeholder="Ingresa el plazo en meses, debe estar entre un rango de 12 y 60"
+                placeholder="Ingresa el plazo en meses, debe estar entre un rango de 12 y 60 meses"
                 required
-                style={{ textAlign: "center" }} // AÑADIR ESTA LÍNEA
               />
             </div>
 
@@ -208,7 +215,6 @@ const Simulador = () => {
                 value={tasa}
                 onChange={(e) => setTasa(e.target.value)}
                 required
-                style={{ textAlign: "center", textAlignLast: "center" }} // 🔹 Estilos agregados aquí
               >
                 <option value="">Selecciona tu situación</option>
                 <option value="no_historial">No tengo historial</option>
@@ -263,3 +269,16 @@ const Simulador = () => {
 };
 
 export default Simulador;
+
+{/*
+  anuales
+
+  Sin: 16.99% personas sin historial
+
+  Bien: 12.99% 
+
+  Regular: 17.99%
+
+  Mal: 30%
+  
+*/}
