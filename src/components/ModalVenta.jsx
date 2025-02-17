@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, Button, Form, Input, Switch, notification } from 'antd';
+import { Modal, Button, Form, Input, notification } from 'antd';
 import '../styles/ModalVenta.css';
+import logo from '../assets/recarlogo.png'; // Asegúrate de tener la ruta correcta de tu logo
 
 const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => {
     const [form] = Form.useForm();
@@ -28,40 +29,63 @@ const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => 
 
     return (
         <Modal
-            title="Ponte en contacto con nosotros"
+            title={
+                <div className="modal-title">
+                    <img src={logo} alt="Logo" className="modal-logo" />
+                    <span>Ponte en contacto con nosotros</span>
+                </div>
+            }
             open={isVisible} // Cambiado de `visible` a `open`
             onCancel={handleCancel}
             footer={null}
             centered
+            className="modal-venta"
         >
+                <div className="call-info">
+                    <p><strong> Llama al: </strong> <a href="tel:+4427172717" className="call-link">4427172717</a></p>
+                </div>
+                <div className="call-info">
+                    <p>O envianos un correo para más detalles sobre esta unidad.</p>
+                </div>
             <Form
                 form={form}
                 name="add_ofertaEducativa"
                 layout="vertical"
-                onFinish={onFinish} // Se agregó la función aquí
+                onFinish={onFinish}
+                className="form-modal"
             >
                 <Form.Item
                     name="nombre"
-                    label="Nombre de Oferta"
-                    rules={[{ required: true, message: 'Por favor ingrese el nombre de la oferta educativa' }]}
+                    label="Nombre"
+                    rules={[{ required: true, message: 'Por favor, ingresa tu nombre!' }]}
                 >
-                    <Input className="modal-input" placeholder="Nombre de la oferta educativa" />
+                    <Input placeholder="Ingresa tu nombre" className="modal-input" />
                 </Form.Item>
+
                 <Form.Item
-                    name="estado"
-                    label="Estado"
-                    valuePropName="checked"
+                    name="telefono"
+                    label="Número de teléfono"
+                    rules={[{ required: true, message: 'Por favor, ingresa tu número de teléfono!' }]}
                 >
-                    <Switch />
+                    <Input placeholder="Ingresa tu número de teléfono" className="modal-input" />
                 </Form.Item>
-                <Form.Item className="modal-footer">
-                    <Button onClick={handleCancel} className="modal-btn modal-btn-cancel">
-                        Cancelar
-                    </Button>
-                    <Button type="primary" htmlType="submit" loading={loading} className="modal-btn modal-btn-create">
-                        Crear Oferta
-                    </Button>
+
+                <Form.Item
+                    name="mensaje"
+                    label="Tu mensaje o dudas"
+                    rules={[{ required: true, message: 'Por favor, ingresa tu mensaje!' }]}
+                >
+                    <Input.TextArea placeholder="Escribe tu mensaje aquí" rows={4} className="modal-textarea" />
                 </Form.Item>
+
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                    loading={loading}
+                    className="submit-button"
+                >
+                    Enviar
+                </Button>
             </Form>
         </Modal>
     );
