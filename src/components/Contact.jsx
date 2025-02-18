@@ -1,11 +1,10 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Contact.css'; // Asegúrate de tener este archivo CSS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import "../styles/Contact.css"
 
 const initialState = {
@@ -26,25 +25,32 @@ const Contact = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    console.log("name: "+ name);
+    console.log("email: "+ email);
+    console.log("message: "+ message);
+
+    // Realizar la solicitud POST al backend
+    fetch(`http://localhost:8080/api/email?name=${name}&email=${email}&message=${message}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      alert("Correo enviado exitosamente");
+      clearState(); // Limpiar el formulario
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Hubo un error al enviar el correo");
+    });    
   };
 
   return (
     <div id="contact">
       <div className="container">
-        <div className="row">
         <div className="row">
           {/* Parte izquierda: formulario de contacto */}
           <div className="col-md-5">
@@ -52,8 +58,7 @@ const Contact = (props) => {
               <h1>Contáctanos</h1>
               <br></br>
               <p className="justified-text">
-                Si tiene alguna duda, comuniquese con nosotros enviando un correo o llamando a los números que aparecen a la derecha en pantalla, estaremos en contacto lo más 
-                pronto posible, gracias.
+                Si tiene alguna duda, comuníquese con nosotros enviando un correo o llamando a los números que aparecen a la derecha en pantalla, estaremos en contacto lo más pronto posible, gracias.
               </p>
             </div>
             <form name="sentMessage" onSubmit={handleSubmit}>
@@ -64,6 +69,7 @@ const Contact = (props) => {
                       type="text"
                       id="name"
                       name="name"
+                      value={name}
                       className="form-control"
                       placeholder="Nombre"
                       required
@@ -74,11 +80,12 @@ const Contact = (props) => {
                 <div className="col-md-6">
                   <div className="form-group">
                     <input
-                      type="email"
+                      type="text"
                       id="email"
                       name="email"
+                      value={email}
                       className="form-control"
-                      placeholder="Correo"
+                      placeholder="Correo o Número"
                       required
                       onChange={handleChange}
                     />
@@ -89,6 +96,7 @@ const Contact = (props) => {
                 <textarea
                   name="message"
                   id="message"
+                  value={message}
                   className="form-control"
                   rows="4"
                   placeholder="Mensaje"
@@ -107,13 +115,12 @@ const Contact = (props) => {
 
           {/* Parte derecha: información de contacto y redes sociales */}
           <div className="col-md-5 contact-info">
-            <h2></h2>
             <h2><center>Información de contacto</center></h2>
             <br></br>
             <div className="contact-item">
               <p><center>
                 <span>
-                <i class="fa-solid fa-location-dot"></i>      Av. 5 de Febrero 2121, 76120 Santiago de Querétaro, Querétaro
+                <i className="fa-solid fa-location-dot"></i>      Av. 5 de Febrero 2121, 76120 Santiago de Querétaro, Querétaro
                 </span>
                 </center></p>
             </div>
@@ -134,15 +141,14 @@ const Contact = (props) => {
             <div className="contact-item">
               <p>
                 <span><center>
-                <i class="fa-brands fa-whatsapp"></i>         +52 442 604 8658
+                <i className="fa-brands fa-whatsapp"></i>         +52 442 604 8658
                 </center></span>{" "}
               </p>
             </div>
-            
 
             <div className="social">
               <br></br>
-            <h4><center>Visita nuestras redes sociales para estar al tanto de nuestras promociones</center></h4>
+              <h4><center>Visita nuestras redes sociales para estar al tanto de nuestras promociones</center></h4>
               <ul>
                 <li>
                   <a href={props.data ? props.data.facebook : "https://www.facebook.com/RecarMotorsQro"}>
@@ -157,8 +163,6 @@ const Contact = (props) => {
               </ul>
             </div>
           </div>
-        </div>
-
         </div>
       </div>
     </div>
