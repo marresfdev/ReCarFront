@@ -1,20 +1,16 @@
-/* Asegúrate de que el body y html ocupen todo el alto de la pantalla */
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-/* Estilos para el contenedor principal de la página simulador */
 .simulador-page-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* Asegura que ocupe todo el ancho disponible */
-  height: 100vh; /* Ocupa todo el alto de la pantalla */
-  background-color: #fefefe; /* Un color de fondo para distinguir la pantalla */
-  padding: 20px;
-  box-sizing: border-box; /* Asegura que el padding no se sume al tamaño total */
+  width: 100%;
+  height: 100%;
+  background-color: #060339; /* Color azul */
+  padding: 0; /* Elimina el padding */
+  box-sizing: border-box;
 }
 
 @media (max-width: 1199px) {

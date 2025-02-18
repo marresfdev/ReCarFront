@@ -17,14 +17,13 @@ const Simulador = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Aquí obtienes los vehículos desde tu API
     fetch("http://localhost:8080/api/getAllAutos")
       .then((response) => response.json())
       .then((data) => {
         const vehicles = data.map((car) => ({
           value: car.id,
-          label: `${car.submarca} ${car.color} ${car.modelo} - $${car.precio.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
-          precio: car.precio, // Agregar precio como un valor numérico
+          label: `${car.submarca} ${car.color} ${car.modelo}`,
+          precio: car.precio,
         }));
         setVehiculos(vehicles);
       })
@@ -32,15 +31,14 @@ const Simulador = () => {
   }, []);
 
   const calcularEngancheMinimo = () => {
-    let porcentaje = 0.1; // Mínimo 10%
-  
+    /*let porcentaje = 0.1;
     if (precio >= 250000 && precio <= 350000) {
-      porcentaje = 0.2; // 20% si está entre 250,000 y 350,000
+      porcentaje = 0.2;
     } else if (precio > 350000) {
-      porcentaje = 0.25; // 25% si es mayor a 350,000
+      porcentaje = 0.25;
     }
-  
-    return (precio * porcentaje).toFixed(2);
+    */
+    return precio;
   };
 
   const handleSubmit = (e) => {
