@@ -7,18 +7,19 @@ import Contact from "../components/Contact";
 import Catalogo from "../components/Catalogo";
 import SimuladorPage from "../pages/SimuladorPage";
 import DetallesAutoPage from "../pages/DetallesAutoPage";
+import SimPage from "../pages/Sim";
 
 const AppRoutes = () => {
   const location = useLocation();
 
   // Verificar si la ruta actual es una de las rutas independientes
   const showNavbar = !(
-    location.pathname === "/auto/:id" || location.pathname === "/simulador"
+    location.pathname === "/auto/:id" || location.pathname === "/simulador" || location.pathname === "/sim"
   );
 
   return (
     <>
-      {showNavbar && <Navbar />} {/* Solo mostrar Navbar si no es ruta independiente */}
+      {showNavbar && <Navbar /> } {/* Solo mostrar Navbar si no es ruta independiente */}
       <Routes>
         {/* Página principal con secciones dentro de content-container */}
         <Route
@@ -42,6 +43,7 @@ const AppRoutes = () => {
         {/* Rutas independientes, sin content-container */}
         <Route path="/auto/:id" element={<DetallesAutoPage />} />
         <Route path="/simulador" element={<SimuladorPage />} />
+        <Route path="/sim" element={<SimPage />} />
       </Routes>
     </>
   );

@@ -15,6 +15,8 @@ const Simulador = () => {
   const [errorEnganche, setErrorEnganche] = useState("");
   const [errorPlazo, setErrorPlazo] = useState("");
   const navigate = useNavigate();
+  const [imagen, setImagen] = useState(null);
+  const [preview, setPreview] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:8080/api/getAllAutos")
@@ -39,6 +41,14 @@ const Simulador = () => {
     }
     */
     return precio;
+  };
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImagen(file);
+      setPreview(URL.createObjectURL(file));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -259,6 +269,46 @@ const Simulador = () => {
                 revisar tu buro de crédito y nos pondremos en contacto contigo lo más pronto posible.
               </label>
             </div>
+            <label htmlFor="resultado" className="form-label">
+              Ingresa tu información:
+            </label>
+            <br />
+            <input
+                type="email"
+                className="form-control"
+                id="correo"
+                //value={INE}
+                placeholder="Ingresa tu correo electrónico"
+                required
+              />
+              {/*
+              AQUI QUIERO REALIZAR UNA CAJA (INPUT) ALGO POR EL ESTILO PARA SUBIR UNA IMAGEN 
+              DONDE EL USUARIO DE CLICK Y PUEDA SUBIR UNA IMAGEN DESDE SU COMPUTADORA O DISPOSITIVO
+              */}
+              {/* Campo de subida de imagen */}
+              <div className="mb-3">
+                <label htmlFor="imagen" className="form-label">
+                  Sube una imagen de tu INE
+                </label>
+                <input
+                  type="file"
+                  className="form-control"
+                  id="imagen"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  required
+                />
+                {preview && (
+                  <div className="mt-3">
+                    <p>Vista previa:</p>
+                    <img
+                      src={preview}
+                      alt="Vista previa"
+                      style={{ maxWidth: "50%", height: "auto", borderRadius: "5px" }}
+                    />
+                  </div>
+                )}
+              </div>
           </form>
         </div>
       </section>
