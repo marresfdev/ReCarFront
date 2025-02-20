@@ -1,0 +1,138 @@
+/* SimuForms.css */
+
+/* Estilo para el contenedor principal */
+#contact {
+  padding: 50px 0;
+}
+
+.container {
+  max-width: 4000px;
+}
+
+/* Estilo para las columnas de contacto */
+.col-md-6 {
+  padding: 15px;
+}
+
+/* Estilo para la columna derecha con la información de contacto */
+.contact-info {
+  text-align: left;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact-item p {
+  margin-bottom: 10px;
+}
+
+.social {
+  text-align: center;
+}
+
+.social ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.social ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.social ul li a {
+  font-size: 60px;
+  color: #000;
+  margin-right: 60px;
+  margin-left: 70px;
+}
+
+.social ul li a:hover {
+  color: #457B9D;
+}
+
+/* Estilo para los formularios */
+
+.section-title-form1 h2, .section-title-form2 h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.section-title-form1 p, .section-title-form2 p {
+  font-size: 16px;
+  color: #000000;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+.btn-customContact {
+  background-color: rgba(6, 28, 60, 0.895);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+}
+
+.justified-text {
+  text-align: justify;
+}
+
+.form-container {
+  margin-top: 30px;
+  border: 2px solid #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Estilos específicos para el formulario 1 */
+.section-title-form1 h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-container-form1 {
+  background-color: #e9f7fc;
+}
+
+/* Estilos específicos para el formulario 2 */
+.section-title-form2 h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #444;
+}
+
+.form-container-form2 {
+  background-color: #f1f1f1;
+}
+
+/* Estilo para el formulario 1 */
+.formulario1 {
+  background-color: #457B9D; /* Azul que prefieras */
+  padding: 20px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  /* Otros estilos que desees agregar */
+}
+
+/* Estilo para el formulario 1 */
+.formulario2 {
+  background-color: #ffffffd8; /* Azul que prefieras */
+  padding: 20px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 3px solid #22130d4f;
+
+  /* Otros estilos que desees agregar */
+}

@@ -1,5 +1,6 @@
 /* Estilo para la barra de navegación */
-.navbar {
+/*
+.navbar-app {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,24 +8,23 @@
   z-index: 999;
   background-color: #343a40;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.317);
-  min-height: 60px; /* Ajusta según la altura de la navbar */
+  min-height: 60px;
 }
 
-/* Contenedor principal con espacio superior */
 .content-container {
-  padding-top: 60px; /* Ajusta este valor si tu navbar tiene una altura diferente */
+  padding-top: 60px;
 }
-
+*/
 #root {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
 /* Resto del código CSS (sin cambios) */
 
-
+/*
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -53,7 +53,7 @@
   }
 }
 
-.card {
+.card-app {
   padding: 0em;
 }
 
@@ -63,5 +63,6 @@
 
 .about-container,
 .contact-container {
-  padding-bottom: 2rem; /* Esto añade espacio dentro de los contenedores de cada componente */
+  padding-bottom: 2rem;
 }
+*/

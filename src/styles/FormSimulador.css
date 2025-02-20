@@ -10,3 +10,21 @@
     width: 200px; /* Ajusta el tamaño según tus necesidades */
     height: auto; /* Mantiene la proporción de la imagen */
 }
+
+.container-sim {
+    display: flex;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+
+.container-left {
+    width: 100%; /* 2/5 de la pantalla */
+    background-color: #f4f4f4; /* Color de fondo para diferenciar */
+    padding: 20px;
+}
+
+.container-right {
+    width: 100%; /* 3/5 de la pantalla */
+    background-color: #e0e0e0; /* Otro color de fondo */
+    padding: 20px;
+}
+

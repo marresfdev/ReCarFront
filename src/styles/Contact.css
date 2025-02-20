@@ -85,3 +85,11 @@
   .justified-text {
     text-align: justify;
   }
+  
+  .form-container {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  

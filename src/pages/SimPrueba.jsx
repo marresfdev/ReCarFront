@@ -1,8 +1,11 @@
 import React from 'react';
+//import "../styles/FormSimulador.css";
+import SimuForms from "../components/SimuForms";
 
 const SimPrueba = () => {
     return (
-        <h1>Esto es una pagina de pruebaaaa</h1>
-  
+        <SimuForms />
     );
 };
+
+export default SimPrueba;
