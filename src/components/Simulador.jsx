@@ -309,6 +309,25 @@ const Simulador = () => {
                   </div>
                 )}
               </div>
+              <button
+                type="submit"
+                className="btn btn-light"
+                style={{
+                  backgroundColor: "#f0f8ff",
+                  color: "#001f3f",
+                  padding: "10px 20px",
+                  fontSize: "1rem",
+                  borderRadius: "5px",
+                  fontWeight: "bold",
+                  border: "none",
+                  transition: "all 0.3s",
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#d1e9ff")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#f0f8ff")}
+              >
+                Enviar
+              </button>
+              <br />
           </form>
         </div>
       </section>
@@ -328,5 +347,10 @@ export default Simulador;
   Regular: 17.99%
 
   Mal: 30%
+
+  scotiabank = eliud (una persona que esta muy bien en buro)
+  ara = capital bank (para una persona que no tenga historial)
+  luis = bancomer (bancomer para alguien que esta regular)
+  javi = saga (donde se encuentran mal)
   
 */}
