@@ -14,6 +14,7 @@ const initialState = {
 const SimuForms = () => {
   const [{ name, email, message, selectedCar }, setState] = useState(initialState);
   const [vehicles, setVehicles] = useState([]);
+  const [selectedCarPrice, setSelectedCarPrice] = useState("");
 
   // Obtener vehículos desde la API
   useEffect(() => {
@@ -23,16 +24,24 @@ const SimuForms = () => {
         const cars = data.map((car) => ({
           value: car.id,
           label: `${car.submarca} ${car.color} ${car.modelo}`,
+          price: car.precio, // Agregar precio
         }));
         setVehicles(cars);
       })
       .catch((error) => console.error("Error al obtener los autos:", error));
   }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+  
+    if (name === "selectedCar") {
+      const selectedCar = vehicles.find((car) => car.value === Number(value));
+      setSelectedCarPrice(selectedCar ? selectedCar.price : ""); // Actualizar el precio
+    }
+  
     setState((prevState) => ({ ...prevState, [name]: value }));
-  };
+  };  
 
   const clearState = () => setState({ ...initialState });
 
@@ -163,13 +172,12 @@ const SimuForms = () => {
                         <label htmlFor="email" className="form-label">
                           Enganche
                         </label>
-                          <input
+                        <input
                             type="text"
                             id="enganche"
                             name="enganche"
-                            //value={enganche}
                             className="form-control"
-                            placeholder="Enganche"
+                            placeholder={selectedCarPrice ? `Enganche mínimo de: ${selectedCarPrice}` : "Enganche"}
                             required
                             onChange={handleChange}
                           />
