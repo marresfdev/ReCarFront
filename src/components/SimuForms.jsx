@@ -15,6 +15,12 @@ const SimuForms = () => {
   const [{ name, email, message, selectedCar }, setState] = useState(initialState);
   const [vehicles, setVehicles] = useState([]);
   const [selectedCarPrice, setSelectedCarPrice] = useState("");
+  const [selectedCarId, setSelectedCarId] = useState("");
+  const [enganche, setEnganche] = useState("");
+  const [errorEnganche, setErrorEnganche] = useState("");
+  const [plazo, setPlazo] = useState("");
+  const [errorPlazo, setErrorPlazo] = useState("");
+  const [buro, setBuro] = useState("");
 
   // Obtener vehículos desde la API
   useEffect(() => {
@@ -25,23 +31,39 @@ const SimuForms = () => {
           value: car.id,
           label: `${car.submarca} ${car.color} ${car.modelo}`,
           price: car.precio, // Agregar precio
+          carId: car.id, // Agregar id
         }));
         setVehicles(cars);
       })
       .catch((error) => console.error("Error al obtener los autos:", error));
   }, []);
   
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+    
     if (name === "selectedCar") {
       const selectedCar = vehicles.find((car) => car.value === Number(value));
-      setSelectedCarPrice(selectedCar ? selectedCar.price : ""); // Actualizar el precio
+      setSelectedCarPrice(selectedCar ? selectedCar.price : "");
+      const selectedCarId = selectedCar ? selectedCar.carId : "";
+      setSelectedCarId(selectedCarId);
+      console.log("Vehículo seleccionado:", selectedCar);
+      console.log("ID del vehículo seleccionado:", selectedCarId);
+    }
+    
+  
+    if (name === "enganche") {
+      setEnganche(value);
     }
   
+    if (name === "plazo") {
+      setPlazo(value);
+    }      
+  
+    // Aquí se debía usar `e.target.value` en lugar de `event.target.value`
+    setBuro(value);
+    
     setState((prevState) => ({ ...prevState, [name]: value }));
-  };  
+  };    
 
   const clearState = () => setState({ ...initialState });
 
@@ -71,16 +93,81 @@ const SimuForms = () => {
       });
   };
 
-  const calcularEnganche = () => {
-    /*let porcentaje = 0.1;
-    if (precio >= 250000 && precio <= 350000) {
-      porcentaje = 0.2;
-    } else if (precio > 350000) {
-      porcentaje = 0.25;
+  const calcularCredito = async () => {
+    const engancheNum = Number(enganche);
+    const plazoNum = Number(plazo);
+    const carIdNum = Number(selectedCarId);
+  
+    if (isNaN(carIdNum) || carIdNum <= 0) {
+      alert("Por favor selecciona un vehículo válido.");
+      return;
     }
-    */
-    return precio;
+  
+    if (isNaN(engancheNum) || engancheNum < Number(selectedCarPrice)) {
+      setErrorEnganche("El enganche debe ser mayor o igual a " + selectedCarPrice);
+      return;
+    } else {
+      setErrorEnganche("");
+    }
+  
+    if (isNaN(plazoNum) || plazoNum < 12 || plazoNum > 60) {
+      setErrorPlazo("El plazo debe estar entre 12 y 60 meses");
+      return;
+    } else {
+      setErrorPlazo("");
+    }
+  
+    try {
+      const response = await fetch("http://localhost:8080/api/calcularCredito", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: carIdNum,
+          enganche: engancheNum,
+          plazo: plazoNum,
+          tasa: 13,
+        }),
+      });
+  
+      console.log("id:", carIdNum);
+      console.log("precio:", selectedCarPrice);
+      console.log("enganche:", engancheNum);
+      console.log("plazo:", plazoNum);
+  
+      const data = await response.json();
+      console.log("Resultado del cálculo:", data);
+  
+      if (typeof data === 'number') {
+        alert("El cálculo del crédito es: " + data);
+      } else {
+        alert("Hubo un problema con los datos del cálculo.");
+      }
+    } catch (error) {
+      console.error("Error al calcular el crédito:", error);
+      alert("Hubo un error al calcular el crédito");
+    }
   };
+     
+
+  const calcularEnganche = () => {
+    if (enganche < selectedCarPrice) {
+      setErrorEnganche("El enganche debe ser mayor o igual a " + selectedCarPrice);
+    } else {
+      setErrorEnganche("");
+      // Aquí puedes continuar con el cálculo
+      console.log("Cálculo realizado correctamente.");
+    }
+  };
+  
+  const validarPlazos = () => {
+    const plazoNum = Number(plazo);
+    if (isNaN(plazoNum) || plazoNum < 12 || plazoNum > 60) { 
+      setErrorPlazo("El plazo debe ser entre 12 y 60 meses");
+    } else {
+      setErrorPlazo("");
+      console.log("Plazo válido.");
+    }
+  };  
 
   return (
     <div id="contact">
@@ -132,14 +219,12 @@ const SimuForms = () => {
                     </button>
                   </form>
                 </div>
-
                 {/* Segundo formulario de contacto */}
                 <div className="col-md-9 formulario2">
                   <div className="section-title-form2">
-                    <h1>Contáctanos</h1>
-                    <br />
+                    <h1>Obten tu crédito aproximado</h1>
                     <p className="justified-text">
-                      Si tienes alguna pregunta, por favor, completa el siguiente formulario y nos pondremos en contacto contigo lo antes posible.
+                      <center>Ingresa tus datos y obtendrás un crédito aproximado para la unidad que desees comprar.</center>
                     </p>
                   </div>
                   <form name="sentMessage" onSubmit={handleSubmit}>
@@ -168,53 +253,69 @@ const SimuForms = () => {
                         </div>
                       </div>
                       <div className="col-md-6">
-                        <div className="form-group">
-                        <label htmlFor="email" className="form-label">
+                      <div className="form-group">
+                        <label htmlFor="enganche" className="form-label">
                           Enganche
                         </label>
                         <input
-                            type="text"
-                            id="enganche"
-                            name="enganche"
-                            className="form-control"
-                            placeholder={selectedCarPrice ? `Enganche mínimo de: ${selectedCarPrice}` : "Enganche"}
-                            required
-                            onChange={handleChange}
-                          />
-                        </div>
+                          type="text"
+                          id="enganche"
+                          name="enganche"
+                          className="form-control"
+                          placeholder={selectedCarPrice ? `Enganche mínimo de: ${selectedCarPrice} para esta unidad` : "Enganche"}
+                          required
+                          onChange={handleChange}
+                        />
+                      </div>
+                      {errorEnganche && <p style={{ color: "red", fontSize: "14px" }}>{errorEnganche}</p>}
                       </div>
                     </div>
                     <div className="row">
                       <div className="col-md-6">
                         <div className="form-group">
+                        <label htmlFor="plazo" className="form-label">
+                          Selecciona el plazo
+                        </label>
                           <input
                             type="text"
                             id="plazo"
                             name="plazo"
-                            value={name}
                             className="form-control"
-                            placeholder="Plazo"
+                            placeholder="Debe estar entre 12 y 60 meses"
                             required
                             onChange={handleChange}
                           />
                         </div>
+                      {errorPlazo && <p style={{ color: "red", fontSize: "14px" }}>{errorPlazo}</p>}
                       </div>
                       <div className="col-md-6">
-                        <div className="form-group">
-                          <input
-                            type="text"
-                            id="email"
-                            name="email"
-                            value={email}
-                            className="form-control"
-                            placeholder="Correo o Número"
-                            required
-                            onChange={handleChange}
-                          />
-                        </div>
+                      <div className="form-group">
+                        <label htmlFor="buro" className="form-label">
+                          Situación en buró de crédito
+                        </label>
+                        {/* Lista desplegable con opciones fijas */}
+                        <select
+                          id="buro"
+                          name="buro"
+                          value={buro}
+                          className="form-control"
+                          required
+                          onChange={handleChange}
+                        >
+                          <option value="">Selecciona tu situación</option>
+                          <option value="sin-historial">No tengo historial</option>
+                          <option value="bien">Bien</option>
+                          <option value="regular">Regular</option>
+                          <option value="mal">Mal</option>
+                        </select>
                       </div>
                     </div>
-                    <button type="submit" className="btn btn-customContact btn-lg">
+                    </div>
+                    <button
+                      type="button"
+                      className="btn btn-customContact btn-lg"
+                      onClick={calcularCredito}  // Elimina los paréntesis
+                    >
                       Calcular
                     </button>
                     <br />
@@ -231,3 +332,12 @@ const SimuForms = () => {
 };
 
 export default SimuForms;
+
+{/*
+
+  scotiabank = eliud (una persona que esta muy bien en buro)
+  ara = capital bank (para una persona que no tenga historial)
+  luis = bancomer (bancomer para alguien que esta regular)
+  javi = saga (donde se encuentran mal)
+
+*/}
