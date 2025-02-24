@@ -244,14 +244,13 @@ const SimuForms = () => {
                       <label htmlFor="imagen" className="form-label">
                         Sube una imagen de tu INE
                       </label>
-
                       {/* Contenedor cuadrado que simula el recuadro */}
                       <div 
                         className="upload-box" 
                         onClick={() => document.getElementById('imagen').click()}
                         style={{ 
                           width: "200px", 
-                          height: "200px", 
+                          height: "100px", 
                           border: "2px dashed #ccc", 
                           borderRadius: "5px", 
                           display: "flex", 

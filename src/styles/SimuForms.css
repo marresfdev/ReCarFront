@@ -3,8 +3,6 @@
 /* Estilo para el contenedor principal */
 #contact {
   position: relative;
-  width: 100%;
-  height: 100vh; /* Esto asegura que ocupe toda la altura de la pantalla */
   background-color: rgba(169, 169, 169, 0.5); /* Gris con opacidad del 50% */
 }
 
