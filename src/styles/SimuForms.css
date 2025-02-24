@@ -137,3 +137,15 @@ textarea.form-control {
   /* Otros estilos que desees agregar */
 }
 
+.alert-bottom-right {
+  font-size: 20px;
+  font-family: Arial, sans-serif; /* Tipo de letra */
+  font-weight: bold; /* Negrita */
+  position: fixed;
+  bottom: 20px;
+  height: 50px;
+  left: 20px;
+  align-content: center;
+  z-index: 999;
+}
+

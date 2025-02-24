@@ -175,7 +175,6 @@ const SimuForms = () => {
       if (typeof data === 'number') {
         //alert("El cálculo del crédito es: " + data);
         //<Alert severity="success">Calculo realizado correctamente</Alert>
-        setMostrarAlerta(true);
         setCalculoCredito(data);
       } else {
         alert("Hubo un problema con los datos del cálculo.");
@@ -269,16 +268,6 @@ const SimuForms = () => {
                     </button>
                     <br />
                     <br />
-                    {mostrarAlerta && (
-                      <Alert severity="success" className="alert-bottom-right">
-                        Correo enviado. Nos pondremos en contacto con usted lo más pronto posible.
-                      </Alert>
-                    )}
-                    {loading && (
-                      <Alert severity="info" className="alert-bottom-right">
-                        Enviando correo, aguarde un momento...
-                      </Alert>
-                    )}
                   </form>
                 </div>
                 {/* Segundo formulario de contacto */}
@@ -386,6 +375,18 @@ const SimuForms = () => {
                     {calculoCredito && <div className="text-danger">{calculoCredito}</div>}
                   </form>
                 </div>
+                <br />
+                <br />
+                {mostrarAlerta && (
+                  <Alert sx={{ borderRadius: 2, backgroundColor: '#30AD23', color: '#fff' }} severity="success">
+                    Correo enviado. Nos pondremos en contacto con usted lo más pronto posible.
+                  </Alert>
+                )}
+                {loading && (
+                  <Alert sx={{ borderRadius: 2, backgroundColor: '#4194cb', color: '#fff' }} severity="info">
+                    Enviando correo, aguarde un momento...
+                  </Alert>
+                )}
               </div>
             </div>
           </div>
