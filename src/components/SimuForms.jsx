@@ -241,28 +241,53 @@ const SimuForms = () => {
                       </div>
                       {/* Campo de subida de imagen */}
                       <div className="form-group">
-                        <label htmlFor="imagen" className="form-label">
-                          Sube una imagen de tu INE
-                        </label>
-                        <input
-                          type="file"
-                          className="form-control"
-                          id="imagen"
-                          accept="image/*"
-                          onChange={handleImageUpload}
-                          required
-                        />
-                        {preview && (
-                          <div className="mt-3">
-                            <p>Vista previa:</p>
-                            <img
-                              src={preview}
-                              alt="Vista previa"
-                              style={{ maxWidth: "40%", height: "auto", borderRadius: "5px" }}
-                            />
-                          </div>
+                      <label htmlFor="imagen" className="form-label">
+                        Sube una imagen de tu INE
+                      </label>
+
+                      {/* Contenedor cuadrado que simula el recuadro */}
+                      <div 
+                        className="upload-box" 
+                        onClick={() => document.getElementById('imagen').click()}
+                        style={{ 
+                          width: "200px", 
+                          height: "200px", 
+                          border: "2px dashed #ccc", 
+                          borderRadius: "5px", 
+                          display: "flex", 
+                          justifyContent: "center", 
+                          alignItems: "center", 
+                          position: "relative", 
+                          cursor: "pointer"
+                        }}
+                      >
+                        {preview ? (
+                          <img 
+                            src={preview} 
+                            alt="Vista previa" 
+                            style={{ 
+                              maxWidth: "100%", 
+                              maxHeight: "100%", 
+                              objectFit: "cover", 
+                              borderRadius: "5px" 
+                            }}
+                          />
+                        ) : (
+                          <i className="fas fa-camera" style={{ fontSize: "40px", color: "#888" }}></i> // Icono para indicar carga
                         )}
                       </div>
+
+                      {/* Input de carga de imagen oculto */}
+                      <input
+                        type="file"
+                        id="imagen"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        style={{ display: "none" }} // Esconde el input
+                      />
+
+                      
+                    </div>
                     <button type="submit" className="btn btn-customContact btn-lg">
                       Enviar
                     </button>
