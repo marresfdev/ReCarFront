@@ -21,6 +21,9 @@ const SimuForms = () => {
   const [plazo, setPlazo] = useState("");
   const [errorPlazo, setErrorPlazo] = useState("");
   const [buro, setBuro] = useState("");
+  const [imagen, setImagen] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [calculoCredito, setCalculoCredito] = useState("");
 
   // Obtener vehículos desde la API
   useEffect(() => {
@@ -63,7 +66,15 @@ const SimuForms = () => {
     setBuro(value);
     
     setState((prevState) => ({ ...prevState, [name]: value }));
-  };    
+  };
+  
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setImagen(file);
+      setPreview(URL.createObjectURL(file));
+    }
+  };
 
   const clearState = () => setState({ ...initialState });
 
@@ -138,7 +149,8 @@ const SimuForms = () => {
       console.log("Resultado del cálculo:", data);
   
       if (typeof data === 'number') {
-        alert("El cálculo del crédito es: " + data);
+        //alert("El cálculo del crédito es: " + data);
+        setCalculoCredito(data);
       } else {
         alert("Hubo un problema con los datos del cálculo.");
       }
@@ -202,20 +214,32 @@ const SimuForms = () => {
                           />
                         </div>
                       </div>
-                    <div className="form-group">
-                      <textarea
-                        name="message"
-                        id="message"
-                        value={message}
-                        className="form-control"
-                        rows="4"
-                        placeholder="Mensaje"
-                        required
-                        onChange={handleChange}
-                      ></textarea>
-                    </div>
+                      {/* Campo de subida de imagen */}
+                      <div className="form-group">
+                        <label htmlFor="imagen" className="form-label">
+                          Sube una imagen de tu INE
+                        </label>
+                        <input
+                          type="file"
+                          className="form-control"
+                          id="imagen"
+                          accept="image/*"
+                          onChange={handleImageUpload}
+                          required
+                        />
+                        {preview && (
+                          <div className="mt-3">
+                            <p>Vista previa:</p>
+                            <img
+                              src={preview}
+                              alt="Vista previa"
+                              style={{ maxWidth: "40%", height: "auto", borderRadius: "5px" }}
+                            />
+                          </div>
+                        )}
+                      </div>
                     <button type="submit" className="btn btn-customContact btn-lg">
-                      Enviar mensaje
+                      Enviar
                     </button>
                   </form>
                 </div>
@@ -319,7 +343,9 @@ const SimuForms = () => {
                       Calcular
                     </button>
                     <br />
-                    <label className="credito">CREDITO APROXIMADO: </label>
+                    <br />
+                    <label className="credito">CREDITO MENSUAL APROXIMADO: </label>
+                    {calculoCredito && <div className="text-danger">{calculoCredito}</div>}
                   </form>
                 </div>
               </div>
