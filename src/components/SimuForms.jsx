@@ -3,12 +3,15 @@ import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/SimuForms.css'; // Asegúrate de tener este archivo CSS
+import Alert from '@mui/material/Alert';
 
 const initialState = {
   name: "",
   email: "",
   message: "",
   selectedCar: "",
+  imagen: null,
+  preview: null,
 };
 
 const SimuForms = () => {
@@ -24,6 +27,8 @@ const SimuForms = () => {
   const [imagen, setImagen] = useState(null);
   const [preview, setPreview] = useState(null);
   const [calculoCredito, setCalculoCredito] = useState("");
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Obtener vehículos desde la API
   useEffect(() => {
@@ -76,7 +81,17 @@ const SimuForms = () => {
     }
   };
 
-  const clearState = () => setState({ ...initialState });
+  const clearState = () => {
+    setState({ ...initialState });
+    setImagen(null);
+    setPreview(null);
+  
+    // Limpiar el valor del input de imagen para que no permanezca seleccionado
+    const imageInput = document.getElementById("imagen");
+    if (imageInput) {
+      imageInput.value = ""; // Esto desmarcará el campo de archivo
+    }
+  };  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -84,8 +99,10 @@ const SimuForms = () => {
     console.log("email: " + email);
     console.log("message: " + message);
     console.log("selectedCar: " + selectedCar);
-
-    // Realizar la solicitud POST al backend
+  
+    setLoading(true); // Mostrar el mensaje de "Enviando correo..."
+    setMostrarAlerta(false); // Ocultar la alerta de éxito al inicio
+  
     fetch(`http://localhost:8080/api/email?name=${name}&email=${email}&message=${message}&car=${selectedCar}`, {
       method: "POST",
       headers: {
@@ -95,14 +112,21 @@ const SimuForms = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        alert("Correo enviado exitosamente");
+        setLoading(false); // Ocultar el mensaje de "Enviando correo..."
+        setMostrarAlerta(true); // Mostrar la alerta de éxito
         clearState(); // Limpiar el formulario
-      })
+        setImagen(null); // Limpiar el campo de imagen
+        setPreview(null); // Limpiar la vista previa de la imagen
+        setTimeout(() => {
+          setMostrarAlerta(false);
+        }, 5000); // 5000 milisegundos = 5 segundos
+      })    
       .catch((error) => {
         console.error("Error:", error);
         alert("Hubo un error al enviar el correo");
+        setLoading(false); // Ocultar el mensaje si ocurre un error
       });
-  };
+  };   
 
   const calcularCredito = async () => {
     const engancheNum = Number(enganche);
@@ -150,6 +174,8 @@ const SimuForms = () => {
   
       if (typeof data === 'number') {
         //alert("El cálculo del crédito es: " + data);
+        //<Alert severity="success">Calculo realizado correctamente</Alert>
+        setMostrarAlerta(true);
         setCalculoCredito(data);
       } else {
         alert("Hubo un problema con los datos del cálculo.");
@@ -241,6 +267,18 @@ const SimuForms = () => {
                     <button type="submit" className="btn btn-customContact btn-lg">
                       Enviar
                     </button>
+                    <br />
+                    <br />
+                    {mostrarAlerta && (
+                      <Alert severity="success" className="alert-bottom-right">
+                        Correo enviado. Nos pondremos en contacto con usted lo más pronto posible.
+                      </Alert>
+                    )}
+                    {loading && (
+                      <Alert severity="info" className="alert-bottom-right">
+                        Enviando correo, aguarde un momento...
+                      </Alert>
+                    )}
                   </form>
                 </div>
                 {/* Segundo formulario de contacto */}
