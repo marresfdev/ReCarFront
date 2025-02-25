@@ -160,7 +160,7 @@ const SimuForms = () => {
           id: carIdNum,
           enganche: engancheNum,
           plazo: plazoNum,
-          tasa: 13,
+          tasa: 20,
         }),
       });
   
@@ -195,7 +195,8 @@ const SimuForms = () => {
       console.log("Cálculo realizado correctamente.");
     }
   };
-  
+
+  /*
   const validarPlazos = () => {
     const plazoNum = Number(plazo);
     if (isNaN(plazoNum) || plazoNum < 12 || plazoNum > 60) { 
@@ -205,15 +206,23 @@ const SimuForms = () => {
       console.log("Plazo válido.");
     }
   };  
+  */
 
   return (
-    <div id="contact">
+    <div id="contact-simforms">
       <div className="container">
         <div className="row justify-content-center">
-          <br />
           <div className="col-md-10">
-            <h2>Simulador de crédito de ReCar Motors</h2>
             <div className="form-container">
+            <h2>
+              <img
+                src="/recarlogo.png" // Asegúrate de que la ruta del logo sea correcta
+                alt="Logo ReCar Motors" 
+                style={{ width: "60px" ,height: "50px", marginRight: "10px" }} 
+              />
+              Simulador de crédito de ReCar Motors
+            </h2>
+            <br />
               <div className="row">
                 {/* Primer formulario de contacto */}
                 <div className="col-md-3 formulario1">
@@ -242,7 +251,7 @@ const SimuForms = () => {
                       {/* Campo de subida de imagen */}
                       <div className="form-group">
                       <label htmlFor="imagen" className="form-label">
-                        Sube una imagen de tu INE
+                        <strong>Sube una imagen de tu INE</strong>
                       </label>
                       {/* Contenedor cuadrado que simula el recuadro */}
                       <div 
@@ -298,6 +307,7 @@ const SimuForms = () => {
                 <div className="col-md-9 formulario2">
                   <div className="section-title-form2">
                     <h1>Obten tu crédito aproximado</h1>
+                    <br />
                     <p className="justified-text">
                       <center>Ingresa tus datos y obtendrás un crédito aproximado para la unidad que desees comprar.</center>
                     </p>
@@ -307,7 +317,7 @@ const SimuForms = () => {
                       <div className="col-md-6">
                         <div className="form-group">
                         <label htmlFor="email" className="form-label">
-                          Vehiculo
+                          <strong>Vehiculo</strong>
                         </label>
                           {/* Lista desplegable para seleccionar el vehículo */}
                           <select
@@ -330,14 +340,14 @@ const SimuForms = () => {
                       <div className="col-md-6">
                       <div className="form-group">
                         <label htmlFor="enganche" className="form-label">
-                          Enganche
+                        <strong>Enganche</strong>
                         </label>
                         <input
                           type="text"
                           id="enganche"
                           name="enganche"
                           className="form-control"
-                          placeholder={selectedCarPrice ? `Enganche mínimo de: ${selectedCarPrice} para esta unidad` : "Enganche"}
+                          placeholder={selectedCarPrice ? `Enganche mínimo de: ${selectedCarPrice} en esta unidad` : "Enganche"}
                           required
                           onChange={handleChange}
                         />
@@ -349,24 +359,30 @@ const SimuForms = () => {
                       <div className="col-md-6">
                         <div className="form-group">
                         <label htmlFor="plazo" className="form-label">
-                          Selecciona el plazo
+                        <strong>Plazo</strong>
                         </label>
-                          <input
-                            type="text"
-                            id="plazo"
-                            name="plazo"
-                            className="form-control"
-                            placeholder="Debe estar entre 12 y 60 meses"
-                            required
-                            onChange={handleChange}
-                          />
+                        {/* Lista desplegable con opciones fijas */}
+                        <select
+                          id="plazo"
+                          name="plazo"
+                          value={plazo}
+                          className="form-control"
+                          required
+                          onChange={handleChange}
+                        >
+                          <option value="">Selecciona un plazo</option>
+                          <option value="12">12 meses</option>
+                          <option value="24">24 meses</option>
+                          <option value="36">36 meses</option>
+                          <option value="48">48 meses</option>
+                          <option value="60">60 meses</option>
+                        </select>
                         </div>
-                      {errorPlazo && <p style={{ color: "red", fontSize: "14px" }}>{errorPlazo}</p>}
                       </div>
                       <div className="col-md-6">
                       <div className="form-group">
                         <label htmlFor="buro" className="form-label">
-                          Situación en buró de crédito
+                        <strong>Situación en buró de crédito</strong>
                         </label>
                         {/* Lista desplegable con opciones fijas */}
                         <select
@@ -378,10 +394,10 @@ const SimuForms = () => {
                           onChange={handleChange}
                         >
                           <option value="">Selecciona tu situación</option>
-                          <option value="sin-historial">No tengo historial</option>
-                          <option value="bien">Bien</option>
-                          <option value="regular">Regular</option>
-                          <option value="mal">Mal</option>
+                          <option value="16.99">No tengo historial</option>
+                          <option value="12.99">Bien</option>
+                          <option value="17.99">Regular</option>
+                          <option value="30">Mal</option>
                         </select>
                       </div>
                     </div>
@@ -395,7 +411,7 @@ const SimuForms = () => {
                     </button>
                     <br />
                     <br />
-                    <label className="credito">CREDITO MENSUAL APROXIMADO: </label>
+                    <label className="credito"><strong>Pago mensual aproximado: </strong></label>
                     {calculoCredito && <div className="text-danger">{calculoCredito}</div>}
                   </form>
                 </div>

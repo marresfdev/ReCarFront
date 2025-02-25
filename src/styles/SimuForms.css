@@ -1,10 +1,18 @@
 /* SimuForms.css */
 
 /* Estilo para el contenedor principal */
-#contact {
-  position: relative;
-  background-color: rgba(169, 169, 169, 0.5); /* Gris con opacidad del 50% */
+#contact-simforms {
+  /*background: linear-gradient(45deg, #00146ae6, #1d30844f, #00146ae6);*/
+  background-size: 400% 400%;
+  /*animation: gradientAnimation 15s ease infinite;*/
 }
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 .container {
   position: relative;
@@ -125,18 +133,17 @@ textarea.form-control {
   padding: 20px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
   /* Otros estilos que desees agregar */
 }
 
 /* Estilo para el formulario 1 */
 .formulario2 {
-  background-color: #ffffffd8; /* Azul que prefieras */
+  background-color: #3431311d;
   padding: 20px;
+  padding-top: 60px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  border: 3px solid #ffffff4f;
+  border: 3px solid #6b676723;
 
   /* Otros estilos que desees agregar */
 }
