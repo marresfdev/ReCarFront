@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/SimuForms.css'; // Asegúrate de tener este archivo CSS
+import '../styles/SimuForms.css';
 import Alert from '@mui/material/Alert';
 
 const initialState = {
@@ -21,6 +21,7 @@ const SimuForms = () => {
   const [selectedCarId, setSelectedCarId] = useState("");
   const [enganche, setEnganche] = useState("");
   const [errorEnganche, setErrorEnganche] = useState("");
+  const [errorCarro, setErrorCarro] = useState("");
   const [errorEmail, setErrorEmail] = useState(""); // Error de validación de correo
   const [plazo, setPlazo] = useState("");
   const [errorPlazo, setErrorPlazo] = useState("");
@@ -30,7 +31,7 @@ const SimuForms = () => {
   const [calculoCredito, setCalculoCredito] = useState("");
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [errorCorreo, setErrorCorreo] = useState("");
+  const [errorBuro, setErrorBuro] = useState("");
   const [errorImagen, setErrorImagen] = useState("");
   const [tasa, setTasa] = useState("");
 
@@ -151,19 +152,24 @@ const SimuForms = () => {
     const tasaNum = Number(buro);
   
     if (isNaN(carIdNum) || carIdNum <= 0) {
-      //alert("Por favor selecciona un vehículo válido.");
+      setErrorCarro("Seleccione un vehículo");
+      setCalculoCredito("");
       return;
+    }else{
+      setErrorCarro("");
     }
   
     if (isNaN(engancheNum) || engancheNum < Number(selectedCarPrice)) {
       setErrorEnganche("El enganche debe ser mayor o igual a " + selectedCarPrice);
+      setCalculoCredito("");
       return;
     } else {
       setErrorEnganche("");
     }
   
-    if (isNaN(plazoNum) || plazoNum < 12 || plazoNum > 60) {
-      setErrorPlazo("El plazo debe estar entre 12 y 60 meses");
+    if (isNaN(plazoNum) || plazoNum <= 0) {
+      setErrorPlazo("Seleccione un plazo");
+      setCalculoCredito("");
       return;
     } else {
       setErrorPlazo("");
@@ -354,6 +360,7 @@ const SimuForms = () => {
                             ))}
                           </select>
                         </div>
+                        {errorCarro && <p style={{ color: "red", fontSize: "14px" }}>{errorCarro}</p>}
                       </div>
                       <div className="col-md-6">
                       <div className="form-group">
@@ -396,6 +403,7 @@ const SimuForms = () => {
                           <option value="60">60 meses</option>
                         </select>
                         </div>
+                        {errorPlazo && <p style={{ color: "red", fontSize: "14px" }}>{errorPlazo}</p>}
                       </div>
                       <div className="col-md-6">
                       <div className="form-group">
@@ -418,6 +426,7 @@ const SimuForms = () => {
                           <option value="30">Mal</option>
                         </select>
                       </div>
+                      {errorBuro && <p style={{ color: "red", fontSize: "14px" }}>{errorBuro}</p>}
                     </div>
                     </div>
                     <button
