@@ -87,6 +87,7 @@ textarea.form-control {
 
 .btn-customContact {
   background-color: rgba(6, 28, 60, 0.895);
+  height: 50px;
   color: white;
   border: none;
   padding: 15px 30px;

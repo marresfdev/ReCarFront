@@ -21,6 +21,7 @@ const SimuForms = () => {
   const [selectedCarId, setSelectedCarId] = useState("");
   const [enganche, setEnganche] = useState("");
   const [errorEnganche, setErrorEnganche] = useState("");
+  const [errorEmail, setErrorEmail] = useState(""); // Error de validación de correo
   const [plazo, setPlazo] = useState("");
   const [errorPlazo, setErrorPlazo] = useState("");
   const [buro, setBuro] = useState("");
@@ -29,6 +30,9 @@ const SimuForms = () => {
   const [calculoCredito, setCalculoCredito] = useState("");
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorCorreo, setErrorCorreo] = useState("");
+  const [errorImagen, setErrorImagen] = useState("");
+  const [tasa, setTasa] = useState("");
 
   // Obtener vehículos desde la API
   useEffect(() => {
@@ -66,9 +70,13 @@ const SimuForms = () => {
     if (name === "plazo") {
       setPlazo(value);
     }      
-  
+    
+    if (name === "buro") {
+      setBuro(value);
+    } 
+
     // Aquí se debía usar `e.target.value` en lugar de `event.target.value`
-    setBuro(value);
+    //setBuro(value);
     
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
@@ -91,7 +99,7 @@ const SimuForms = () => {
     if (imageInput) {
       imageInput.value = ""; // Esto desmarcará el campo de archivo
     }
-  };  
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -99,6 +107,14 @@ const SimuForms = () => {
     console.log("email: " + email);
     console.log("message: " + message);
     console.log("selectedCar: " + selectedCar);
+
+    // Validación de que el correo no esté vacío
+    if (email === "") {
+      setErrorEmail(true); // Cambiar el estado para mostrar el error
+      return; // Detener la ejecución del formulario si el correo está vacío
+    } else {
+      setErrorEmail(false); // Restablecer el estado del error si el correo no está vacío
+    }
   
     setLoading(true); // Mostrar el mensaje de "Enviando correo..."
     setMostrarAlerta(false); // Ocultar la alerta de éxito al inicio
@@ -132,9 +148,10 @@ const SimuForms = () => {
     const engancheNum = Number(enganche);
     const plazoNum = Number(plazo);
     const carIdNum = Number(selectedCarId);
+    const tasaNum = Number(buro);
   
     if (isNaN(carIdNum) || carIdNum <= 0) {
-      alert("Por favor selecciona un vehículo válido.");
+      //alert("Por favor selecciona un vehículo válido.");
       return;
     }
   
@@ -160,7 +177,7 @@ const SimuForms = () => {
           id: carIdNum,
           enganche: engancheNum,
           plazo: plazoNum,
-          tasa: 20,
+          tasa: tasaNum,
         }),
       });
   
@@ -168,6 +185,7 @@ const SimuForms = () => {
       console.log("precio:", selectedCarPrice);
       console.log("enganche:", engancheNum);
       console.log("plazo:", plazoNum);
+      console.log("tasa:", tasaNum);
   
       const data = await response.json();
       console.log("Resultado del cálculo:", data);
@@ -218,7 +236,7 @@ const SimuForms = () => {
               <img
                 src="/recarlogo.png" // Asegúrate de que la ruta del logo sea correcta
                 alt="Logo ReCar Motors" 
-                style={{ width: "60px" ,height: "50px", marginRight: "10px" }} 
+                style={{ width: "50px" ,height: "50px", marginRight: "10px" }} 
               />
               Simulador de crédito de ReCar Motors
             </h2>
@@ -317,7 +335,7 @@ const SimuForms = () => {
                       <div className="col-md-6">
                         <div className="form-group">
                         <label htmlFor="email" className="form-label">
-                          <strong>Vehiculo</strong>
+                          <strong>Vehículo</strong>
                         </label>
                           {/* Lista desplegable para seleccionar el vehículo */}
                           <select
