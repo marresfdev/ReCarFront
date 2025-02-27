@@ -39,22 +39,30 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link" href="#catalogo">
-                <FaCar className="nav-icon" /> Catálogo
+              Catálogo
+              <br />
+                <FaCar className="nav-icon" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#about">
-                <FaHome className="nav-icon" /> Sobre nosotros
+              Sobre nosotros
+              <br />
+                <FaHome className="nav-icon" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
-                <FaCalculator className="nav-icon" /> Simulador de crédito
+              Simulador de crédito
+              <br />
+                <FaCalculator className="nav-icon" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-                <FaEnvelope className="nav-icon" /> Contáctanos
+              Contáctanos
+              <br />
+                <FaEnvelope className="nav-icon" />
               </a>
             </li>
           </ul>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, Form, Input, notification } from 'antd';
 import '../styles/ModalVenta.css';
 import logo from '../assets/recarlogo.png'; // Asegúrate de tener la ruta correcta de tu logo
+import { Row, Col } from 'antd';
 
 const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => {
     const [form] = Form.useForm();
@@ -54,21 +55,27 @@ const ModalVenta = ({ isVisible, onCancel, loading, setLoading, fetchData }) => 
                 onFinish={onFinish}
                 className="form-modal"
             >
-                <Form.Item
-                    name="nombre"
-                    label="Nombre"
-                    rules={[{ required: true, message: 'Por favor, ingresa tu nombre!' }]}
-                >
-                    <Input placeholder="Ingresa tu nombre" className="modal-input" />
-                </Form.Item>
+                <Row gutter={16}> {/* Ajusta el espacio entre columnas con gutter */}
+                    <Col span={12}> {/* Ajusta el ancho según necesites */}
+                        <Form.Item
+                            name="nombre"
+                            label="Nombre"
+                            rules={[{ required: true, message: 'Por favor, ingresa tu nombre!' }]}
+                        >
+                            <Input placeholder="Ingresa tu nombre" className="modal-input" />
+                        </Form.Item>
+                    </Col>
 
-                <Form.Item
-                    name="telefono"
-                    label="Número de teléfono"
-                    rules={[{ required: true, message: 'Por favor, ingresa tu número de teléfono!' }]}
-                >
-                    <Input placeholder="Ingresa tu número de teléfono" className="modal-input" />
-                </Form.Item>
+                    <Col span={12}>
+                        <Form.Item
+                            name="telefono"
+                            label="Número de teléfono"
+                            rules={[{ required: true, message: 'Por favor, ingresa tu número de teléfono!' }]}
+                        >
+                            <Input placeholder="Ingresa tu número de teléfono" className="modal-input" />
+                        </Form.Item>
+                    </Col>
+                </Row>
 
                 <Form.Item
                     name="mensaje"

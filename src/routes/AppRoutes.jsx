@@ -44,9 +44,11 @@ const AppRoutes = () => {
 
         {/* Rutas independientes, sin content-container */}
         <Route path="/auto/:id" element={<DetallesAutoPage />} />
-        <Route path="/simulador" element={<SimuladorPage />} />
+        <Route path="/simulador" element={<SimPrueba />} />
+        {/*}
         <Route path="/sim" element={<SimPage />} />
         <Route path="/simPrueba" element={<SimPrueba />} />
+        */}
       </Routes>
     </>
   );

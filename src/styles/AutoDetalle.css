@@ -101,6 +101,12 @@
   .enganche {
     font-size: 1.2em;
     font-weight: bold;
-    color: #f41b10b1; /* Un color llamativo para resaltar el enganche */
+    color: #010000c5; /* Un color llamativo para resaltar el enganche */
+  }
+
+  .enganche-precio {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #d21c16cb; /* Un color llamativo para resaltar el enganche */
   }
   
