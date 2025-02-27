@@ -102,48 +102,41 @@ const SimuForms = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("name: " + name);
-    console.log("email: " + email);
-    console.log("message: " + message);
-    console.log("selectedCar: " + selectedCar);
-
-    // Validación de que el correo no esté vacío
-    if (email === "") {
-      setErrorEmail(true); // Cambiar el estado para mostrar el error
-      return; // Detener la ejecución del formulario si el correo está vacío
-    } else {
-      setErrorEmail(false); // Restablecer el estado del error si el correo no está vacío
+  
+    if (!imagen) {
+      setErrorImagen("Debe subir una imagen");
+      return;
     }
   
-    setLoading(true); // Mostrar el mensaje de "Enviando correo..."
-    setMostrarAlerta(false); // Ocultar la alerta de éxito al inicio
+    setLoading(true);
+    setMostrarAlerta(false);
   
-    fetch(`http://localhost:8080/api/email?name=${name}&email=${email}&message=${message}&car=${selectedCar}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setLoading(false); // Ocultar el mensaje de "Enviando correo..."
-        setMostrarAlerta(true); // Mostrar la alerta de éxito
-        clearState(); // Limpiar el formulario
-        setImagen(null); // Limpiar el campo de imagen
-        setPreview(null); // Limpiar la vista previa de la imagen
-        setTimeout(() => {
-          setMostrarAlerta(false);
-        }, 5000); // 5000 milisegundos = 5 segundos
-      })    
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Hubo un error al enviar el correo");
-        setLoading(false); // Ocultar el mensaje si ocurre un error
+    const formData = new FormData();
+    formData.append("contacto", name);
+    formData.append("imagen", imagen);
+  
+    try {
+      const response = await fetch("http://localhost:8080/api/emailBuro", {
+        method: "POST",
+        body: formData,
       });
-  };   
+  
+      const data = await response.json();
+      console.log(data);
+      setLoading(false);
+      setMostrarAlerta(true);
+      clearState();
+      setTimeout(() => {
+        setMostrarAlerta(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Hubo un error al enviar el correo");
+      setLoading(false);
+    }
+  };       
 
   const calcularCredito = async () => {
     const engancheNum = Number(enganche);
@@ -283,7 +276,7 @@ const SimuForms = () => {
                       {/* Campo de subida de imagen */}
                       <div className="form-group">
                       <label htmlFor="imagen" className="form-label">
-                        <strong>Sube una imagen de tu INE</strong>
+                        <strong>Sube una imagen de tu INE (parte frontal)</strong>
                       </label>
                       {/* Contenedor cuadrado que simula el recuadro */}
                       <div 
@@ -447,7 +440,7 @@ const SimuForms = () => {
                     <br />
                     <br />
                     <label className="credito"><strong>Pago mensual aproximado: </strong></label>
-                    {calculoCredito && <div className="text-danger">{calculoCredito}</div>}
+                    <strong>{calculoCredito && <div className="text-danger">{calculoCredito}</div>}</strong>
                   </form>
                 </div>
                 <br />
