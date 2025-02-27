@@ -174,6 +174,14 @@ const SimuForms = () => {
     } else {
       setErrorPlazo("");
     }
+
+    if (isNaN(buro) || buro <= 0) {
+      setErrorBuro("Seleccione su situación en buró de crédito");
+      setCalculoCredito("");
+      return;
+    } else {
+      setErrorBuro("");
+    }
   
     try {
       const response = await fetch("http://localhost:8080/api/calcularCredito", {
