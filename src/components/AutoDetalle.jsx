@@ -5,6 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../styles/AutoDetalle.css"; // Importamos los estilos
 import ModalVenta from "../components/ModalVenta";
+import imagendeprueba from "../assets/autos/IMG1.jpg";
 
 const AutoDetalle = () => {
   const { id } = useParams();

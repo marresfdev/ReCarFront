@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navbar.css'; // Archivo de estilos
 import logo from "../assets/recarlogo.png"; // Ruta al logo de la empresa
-import { FaHome, FaCar, FaEnvelope, FaCalculator } from "react-icons/fa";
+import { FaHome, FaCar, FaEnvelope, FaCalculator, FaPhone } from "react-icons/fa";
 
 const Navbar = () => {
   const location = useLocation();
@@ -36,33 +36,33 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-3">
             <li className="nav-item">
               <a className="nav-link" href="#catalogo">
+              <FaCar className="nav-icon" />
+                <br />
               Catálogo
-              <br />
-                <FaCar className="nav-icon" />
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#about">
-              Sobre nosotros
+              <FaHome className="nav-icon" />
               <br />
-                <FaHome className="nav-icon" />
+              Sobre nosotros
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
-              Simulador de crédito
+              <FaCalculator className="nav-icon" />
               <br />
-                <FaCalculator className="nav-icon" />
+              Simulador de crédito
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-              Contáctanos
+              <FaEnvelope className="nav-icon" />
               <br />
-                <FaEnvelope className="nav-icon" />
+              Contáctanos
               </a>
             </li>
           </ul>
