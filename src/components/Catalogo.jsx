@@ -40,7 +40,11 @@ const Catalogo = () => {
             return (
               <div key={car.id} className="col-md-3 mb-4">
                 <div className="card">
-                  <img src={car.imagen} alt={`${car.submarca} ${car.modelo} ${car.color}`} className="card-img-top" />
+                <img
+                    src={`http://localhost:8080/images/${car.imagen}`}  // Construimos la URL completa
+                    alt={`${car.submarca} ${car.modelo} ${car.color}`}
+                    className="card-img-top"
+                  />
                   <div className="card-body">
                     <h5 className="card-title">
                       {car.submarca} {car.color} {car.modelo}

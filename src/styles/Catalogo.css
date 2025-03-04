@@ -1,7 +1,7 @@
 /* Contenedor de todo el contenido con márgenes laterales pequeños */
 .container-fluid {
     margin: 0;
-    padding: 0 5px;  /* Añadir pequeño margen a los lados */
+    padding: 0 2px;  /* Añadir pequeño margen a los lados */
   }
   
   /* Hacer que las tarjetas ocupen el 100% de la columna */
@@ -26,7 +26,7 @@
     padding: 10px 15px;
     font-size: 16px;
     position: absolute;
-    bottom: 70px; /* Ajusta la posición a 30px del borde inferior */
+    bottom: 50px; /* Ajusta la posición a 30px del borde inferior */
     left: 50%;
     transform: translateX(-50%); /* Centrar horizontalmente */
     width: 60%; /* Ajusta el tamaño según necesites */
