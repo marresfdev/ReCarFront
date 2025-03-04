@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; 
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../styles/AutoDetalle.css"; // Importamos los estilos
 import ModalVenta from "../components/ModalVenta";
-import imagendeprueba from "../assets/autos/IMG1.jpg";
 
 const AutoDetalle = () => {
   const { id } = useParams();
@@ -37,7 +36,7 @@ const AutoDetalle = () => {
       .get(`http://localhost:8080/api/getAuto/${id}`)
       .then((response) => {
         setAuto(response.data);
-        setImagenes(response.data.imagenes);
+        setImagenes(response.data.imagenes); // Las imágenes vienen en una lista de objetos con una propiedad 'url'
       })
       .catch((error) => {
         console.error("Hubo un error al obtener los detalles del auto:", error);
@@ -54,13 +53,23 @@ const AutoDetalle = () => {
   return (
     <div className="auto-detalle-container">
       <div className="auto-detalle-left">
-        <Carousel showThumbs={true} infiniteLoop autoPlay>
-          {imagenes.map((img, index) => (
+      <Carousel showThumbs={true} infiniteLoop autoPlay>
+        {imagenes.length > 0 ? (
+          imagenes.map((img, index) => (
             <div key={index}>
-              <img src={img} alt={`Auto imagen ${index + 1}`} />
+              <img 
+                src={`http://localhost:8080/images/${img}`}  // Construimos la URL completa
+                alt={`Auto imagen ${index + 1}`} 
+                onError={(e) => e.target.src = "/path/to/default-image.jpg"} // Imagen por defecto en caso de error
+              />
             </div>
-          ))}
-        </Carousel>
+          ))
+        ) : (
+          <div>
+            <p>No hay imágenes disponibles para este auto.</p>
+          </div>
+        )}
+      </Carousel>
       </div>
 
       <div className="auto-detalle-right">
