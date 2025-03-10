@@ -78,7 +78,7 @@
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 9px;
 }
 
 textarea.form-control {
@@ -147,6 +147,10 @@ textarea.form-control {
   border: 3px solid #6b676723;
 
   /* Otros estilos que desees agregar */
+}
+
+.tit-form1 {
+  color: #efe9e9f5;
 }
 
 .alert-bottom-right {

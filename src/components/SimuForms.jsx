@@ -252,7 +252,7 @@ const SimuForms = () => {
                 {/* Primer formulario de contacto */}
                 <div className="col-md-3 formulario1">
                   <div className="section-title-form1">
-                    <h3>¿Quieres saber tu crédito exacto?</h3>
+                    <h3 className="tit-form1">¿Quieres saber tu crédito exacto?</h3>
                     <br />
                     <p className="justified-text">
                       Envianos una foto de tu INE para revisar tu buró de crédito y nos pondremos en contacto contigo lo antes posible.

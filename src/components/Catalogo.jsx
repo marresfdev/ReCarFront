@@ -51,7 +51,7 @@ const Catalogo = () => {
                     </h5>
                     <p className="card-text">
                       {/* Mostrar el precio */}
-                      Desde: ${car.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                      Enganche: ${car.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </p>
                     {/* btn con link para redirigir a la página de detalles */}
                     <Link to={`/auto/${car.id}`} className="btn btn-custom">Ver más</Link>
