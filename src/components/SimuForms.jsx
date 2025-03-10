@@ -200,7 +200,7 @@ const SimuForms = () => {
       if (typeof data === 'number') {
         //alert("El cálculo del crédito es: " + data);
         //<Alert severity="success">Calculo realizado correctamente</Alert>
-        setCalculoCredito("Pago mensual aproximado:\n" + data + "\n (este valor puede variar un poco)");
+        setCalculoCredito("Pago mensual aproximado:\n" + data + "\n (este valor puede variar)");
       } else {
         alert("Hubo un problema con los datos del cálculo.");
       }

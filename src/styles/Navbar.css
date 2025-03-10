@@ -1,4 +1,4 @@
-/* Navbar.css */
+/* General */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,27 +7,105 @@ html, body {
 }
 
 .navbar {
-  position: fixed; /* Fija la navbar en la parte superior */
-  top: 0; /* Se mantendrá en la parte superior */
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%; /* Asegura que ocupe todo el ancho */
-  min-height: 60px; /* Ajusta la altura según lo necesites */
-  background-color: #343a40; /* Fondo oscuro */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.317); /* Agrega una sombra sutil */
-  border-radius: 0 0 7px 7px; /* Redondea solo los bordes inferiores */
-  z-index: 1000; /* Asegura que esté sobre otros elementos */
+  width: 100%;
+  min-height: 85px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 5px 5px;
+  z-index: 1000;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
 }
 
-.navbar .container-fluid {
-  padding: 0 15px; /* Ajusta el padding si es necesario */
+/* Logo y Marca */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.navbar-brand img {
-  width: 80px; /* Ajusta el ancho del logo */
-  height: auto; /* Mantén la proporción del logo */
+.navbar-logo {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
 }
 
-/* Asegúrate de agregar un margen superior al contenido para evitar que quede debajo de la navbar */
+.brand-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* Menú de navegación */
+.navbar-nav {
+  align-items: center;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 15px;
+}
+
+.nav-link:hover {
+  color: #f39c12;
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  color: #f8c471;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover .nav-icon {
+  color: #f39c12;
+}
+
+/* Botón Hamburguesa */
+.custom-toggler {
+  border: none;
+  background-color: transparent;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: none;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .navbar-nav {
+    background-color: rgba(44, 62, 80, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* Ajuste para evitar solapamiento */
 body {
-  padding-top: 60px; /* Ajusta el valor según la altura de tu navbar */
+  padding-top: 80px;
 }

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Navbar.css'; // Archivo de estilos
+import '../styles/Navbar.css'; // Archivo de estilos mejorado
 import logo from "../assets/recarlogo.png"; // Ruta al logo de la empresa
-import { FaHome, FaCar, FaEnvelope, FaCalculator, FaPhone } from "react-icons/fa";
+import { FaHome, FaCar, FaEnvelope, FaCalculator } from "react-icons/fa";
 
 const Navbar = () => {
   const location = useLocation();
@@ -18,14 +18,17 @@ const Navbar = () => {
   }, [location]);
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
+        {/* Logo y Marca */}
         <Link className="navbar-brand" to="/">
-          <img src={logo} alt="Logo" />
-          ENLAZANDO TUS CAMINOS
+          <img src={logo} alt="Logo" className="navbar-logo" />
+          <span className="brand-text">ENLAZANDO TUS CAMINOS</span>
         </Link>
+
+        {/* Botón de menú responsive */}
         <button
-          className="navbar-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -35,34 +38,32 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-3">
+
+        {/* Enlaces de navegación */}
+        <div className="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+          <ul className="navbar-nav d-flex gap-4">
             <li className="nav-item">
               <a className="nav-link" href="#catalogo">
-              <FaCar className="nav-icon" />
-                <br />
-              Catálogo
+                <FaCar className="nav-icon" />
+                <span>Catálogo</span>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#about">
-              <FaHome className="nav-icon" />
-              <br />
-              Sobre nosotros
+                <FaHome className="nav-icon" />
+                <span>Sobre nosotros</span>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
-              <FaCalculator className="nav-icon" />
-              <br />
-              Simulador de crédito
+                <FaCalculator className="nav-icon" />
+                <span>Simulador</span>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#contact">
-              <FaEnvelope className="nav-icon" />
-              <br />
-              Contáctanos
+                <FaEnvelope className="nav-icon" />
+                <span>Contáctanos</span>
               </a>
             </li>
           </ul>

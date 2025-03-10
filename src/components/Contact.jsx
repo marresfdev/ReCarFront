@@ -115,6 +115,7 @@ const Contact = (props) => {
 
           {/* Parte derecha: información de contacto y redes sociales */}
           <div className="col-md-5 contact-info">
+          <br/>
             <h2><center>Información de contacto</center></h2>
             <br></br>
             <div className="contact-item">
@@ -147,7 +148,8 @@ const Contact = (props) => {
             </div>
 
             <div className="social">
-              <br></br>
+              <br />
+              <br />
               <h4><center>Visita nuestras redes sociales para estar al tanto de nuestras promociones</center></h4>
               <ul>
                 <li>
