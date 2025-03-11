@@ -51,10 +51,11 @@
     margin-left: 1rem;
     margin-right: 1rem;
     border-radius: 0.75rem;
-    background-color: rgba(13, 25, 59, 0.384);
+    background-color: rgba(13, 25, 59, 0.806);
     box-shadow: 0 10px 15px -3px rgba(6, 1, 1, 0.171), 0 4px 6px -4px rgba(2, 19, 33, 0.372);
     font-size: 30px;
     font-style: bold;
+    color: #fff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 3rem;
   }
@@ -75,7 +76,7 @@
   }
   
   .button-lq {
-    background-color: rgba(4, 38, 65, 0.692);
+    background-color: #d78e19;
     color: white;
     font-size: 16px;
     padding: 12px 24px;
@@ -87,7 +88,7 @@
   }
   
   .button-lq:hover {
-    background-color: rgba(8, 42, 71, 0.9);
+    background-color:#754d0c;
     box-shadow: 0 12px 18px -5px rgba(88, 92, 94, 0.6), 0 6px 10px -6px rgba(74, 78, 82, 0.5);
     transform: translateY(-3px);
   }
