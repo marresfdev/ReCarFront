@@ -87,6 +87,7 @@ const SimuForms = () => {
     if (file) {
       setImagen(file);
       setPreview(URL.createObjectURL(file));
+      setErrorImagen("");
     }
   };
 
@@ -106,7 +107,7 @@ const SimuForms = () => {
     e.preventDefault();
   
     if (!imagen) {
-      setErrorImagen("Debe subir una imagen");
+      setErrorImagen("Debe seleccionar una imagen");
       return;
     }
   
@@ -318,8 +319,8 @@ const SimuForms = () => {
                         onChange={handleImageUpload}
                         style={{ display: "none" }} // Esconde el input
                       />
-
-                      
+                      <br />
+                    {errorImagen && <p style={{ color: "red", fontSize: "14px" }}>{errorImagen}</p>}                     
                     </div>
                     <button type="submit" className="btn btn-customContact btn-lg">
                       Enviar
