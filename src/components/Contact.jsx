@@ -32,7 +32,7 @@ const Contact = (props) => {
     console.log("email: "+ email);
     console.log("message: "+ message);
     setIsLoading(true); // Bloquea el botón
-    toast.info("Enviando correo...", { position: "bottom-left", autoClose: 2000 });
+    //toast.info("Enviando correo...", { position: "bottom-left", autoClose: 2000 });
 
     // Realizar la solicitud POST al backend
     fetch(`http://localhost:8080/api/email?name=${name}&email=${email}&message=${message}`, {
@@ -47,7 +47,8 @@ const Contact = (props) => {
       //alert("Correo enviado exitosamente");
       toast.success("Correo enviado correctamente", {
         position: "bottom-left",
-        autoClose: 3000, // Se cierra en 3 segundos
+        autoClose: 3000,
+        hideProgressBar: true
       });
       clearState(); // Limpiar el formulario
     })
