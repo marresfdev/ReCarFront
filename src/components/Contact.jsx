@@ -6,6 +6,8 @@ import '../styles/Contact.css'; // Asegúrate de tener este archivo CSS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import "../styles/Contact.css"
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialState = {
   name: "",
@@ -15,6 +17,7 @@ const initialState = {
 
 const Contact = (props) => {
   const [{ name, email, message }, setState] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +31,8 @@ const Contact = (props) => {
     console.log("name: "+ name);
     console.log("email: "+ email);
     console.log("message: "+ message);
+    setIsLoading(true); // Bloquea el botón
+    toast.info("Enviando correo...", { position: "bottom-left", autoClose: 2000 });
 
     // Realizar la solicitud POST al backend
     fetch(`http://localhost:8080/api/email?name=${name}&email=${email}&message=${message}`, {
@@ -39,12 +44,19 @@ const Contact = (props) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      alert("Correo enviado exitosamente");
+      //alert("Correo enviado exitosamente");
+      toast.success("Correo enviado correctamente", {
+        position: "bottom-left",
+        autoClose: 3000, // Se cierra en 3 segundos
+      });
       clearState(); // Limpiar el formulario
     })
     .catch((error) => {
       console.error("Error:", error);
       alert("Hubo un error al enviar el correo");
+    })
+    .finally(() => {
+      setIsLoading(false); // Reactiva el botón
     });    
   };
 
@@ -52,6 +64,7 @@ const Contact = (props) => {
     <div id="contact">
       <div className="container">
         <div className="row">
+        <ToastContainer />  {/* Agregar este componente aquí */}
           {/* Parte izquierda: formulario de contacto */}
           <div className="col-md-5">
             <div className="section-title">
@@ -104,8 +117,12 @@ const Contact = (props) => {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-customContact btn-lg">
-                Enviar mensaje
+              <button 
+                type="submit" 
+                className="btn btn-customContact btn-lg"
+                disabled={isLoading} // Deshabilitar el botón si está cargando
+              >
+                {isLoading ? "Enviando..." : "Enviar mensaje"}
               </button>
             </form>
           </div>

@@ -78,7 +78,7 @@ const AutoDetalle = () => {
           <div className="info">
             <p>{`Con transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}.`}</p>
             <p className="enganche">
-              {`Llévatelo desde:`}
+              {`Enganche desde:`}
             </p>
             <p className="enganche-precio">
               {`${auto.precio.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}

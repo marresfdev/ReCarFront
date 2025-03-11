@@ -81,6 +81,12 @@
     padding: 15px 30px;
     font-size: 16px;
   }
+
+  .btn-customContact:hover,
+  .btn-customContact:focus {
+    background-color: #051f3b; /* Azul más oscuro al pasar el mouse */
+    color: white; /* Asegurar que el texto no cambie de color */
+  }
   
   .justified-text {
     text-align: justify;

@@ -20,7 +20,7 @@
   }
   
   .btn-custom {
-    background-color: rgba(6, 28, 60, 0.895);
+    background-color: rgba(6, 28, 60, 0.874);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -31,4 +31,10 @@
     transform: translateX(-50%); /* Centrar horizontalmente */
     width: 60%; /* Ajusta el tamaño según necesites */
     border-radius: 15px;
+  }
+
+  .btn-custom:hover,
+  .btn-custom:focus {
+    background-color: #03182e; /* Azul más oscuro al pasar el mouse */
+    color: white; /* Asegurar que el texto no cambie de color */
   }
