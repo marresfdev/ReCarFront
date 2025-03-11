@@ -322,8 +322,12 @@ const SimuForms = () => {
                       <br />
                     {errorImagen && <p style={{ color: "red", fontSize: "14px" }}>{errorImagen}</p>}                     
                     </div>
-                    <button type="submit" className="btn btn-customContact btn-lg">
-                      Enviar
+                    <button 
+                      type="submit" 
+                      className="btn btn-customContact btn-lg" 
+                      disabled={loading} // Deshabilitar el botón cuando loading sea true
+                    >
+                      {loading ? "Enviando..." : "Enviar"}
                     </button>
                     <br />
                     <br />
