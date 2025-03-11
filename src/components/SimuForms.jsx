@@ -4,6 +4,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/SimuForms.css';
 import Alert from '@mui/material/Alert';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialState = {
   name: "",
@@ -129,12 +131,24 @@ const SimuForms = () => {
       setLoading(false);
       setMostrarAlerta(true);
       clearState();
+
+      // Mostrar el toast de éxito
+      toast.success("¡Correo enviado con éxito!", {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: true
+      });
+
       setTimeout(() => {
         setMostrarAlerta(false);
       }, 5000);
     } catch (error) {
       console.error("Error:", error);
-      alert("Hubo un error al enviar el correo");
+      //alert("Hubo un error al enviar el correo");
+      toast.error("Hubo un error al enviar el correo", {
+        position: "bottom-left",  // Mostrar el error en la parte inferior izquierda
+        autoClose: 5000, // Duración del toast
+      });
       setLoading(false);
     }
   };       
@@ -239,6 +253,7 @@ const SimuForms = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-10">
+          <ToastContainer />
             <div className="form-container">
             <h2>
               <img
@@ -449,16 +464,6 @@ const SimuForms = () => {
                 </div>
                 <br />
                 <br />
-                {mostrarAlerta && (
-                  <Alert sx={{ borderRadius: 2, backgroundColor: '#30AD23', color: '#fff' }} severity="success">
-                    Correo enviado. Nos pondremos en contacto con usted lo más pronto posible.
-                  </Alert>
-                )}
-                {loading && (
-                  <Alert sx={{ borderRadius: 2, backgroundColor: '#4194cb', color: '#fff' }} severity="info">
-                    Enviando correo, aguarde un momento...
-                  </Alert>
-                )}
               </div>
             </div>
           </div>
