@@ -118,6 +118,8 @@ const SimuForms = () => {
   
     const formData = new FormData();
     formData.append("contacto", name);
+    formData.append("email", email);  // Agregar el campo de correo electrónico
+    formData.append("message", message);  // Agregar el mensaje del campo de texto
     formData.append("imagen", imagen);
   
     try {
@@ -131,27 +133,27 @@ const SimuForms = () => {
       setLoading(false);
       setMostrarAlerta(true);
       clearState();
-
+  
       // Mostrar el toast de éxito
       toast.success("¡Correo enviado con éxito!", {
         position: "bottom-left",
         autoClose: 5000,
         hideProgressBar: true
       });
-
+  
       setTimeout(() => {
         setMostrarAlerta(false);
       }, 5000);
     } catch (error) {
       console.error("Error:", error);
-      //alert("Hubo un error al enviar el correo");
       toast.error("Hubo un error al enviar el correo", {
-        position: "bottom-left",  // Mostrar el error en la parte inferior izquierda
-        autoClose: 5000, // Duración del toast
+        position: "bottom-left",
+        autoClose: 5000,
       });
       setLoading(false);
     }
-  };       
+  };
+         
 
   const calcularCredito = async () => {
     const engancheNum = Number(enganche);
