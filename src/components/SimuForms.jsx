@@ -117,9 +117,9 @@ const SimuForms = () => {
     setMostrarAlerta(false);
   
     const formData = new FormData();
-    formData.append("contacto", name);
-    formData.append("email", email);  // Agregar el campo de correo electrónico
-    formData.append("message", message);  // Agregar el mensaje del campo de texto
+    //formData.append("contacto", name);
+    formData.append("contacto", email);  // Agregar el campo de correo electrónico
+    //formData.append("message", message);  // Agregar el mensaje del campo de texto
     formData.append("imagen", imagen);
   
     try {
@@ -135,7 +135,7 @@ const SimuForms = () => {
       clearState();
   
       // Mostrar el toast de éxito
-      toast.success("¡Correo enviado con éxito!", {
+      toast.success("¡Correo enviado, nos pondremos en contacto contigo!", {
         position: "bottom-left",
         autoClose: 5000,
         hideProgressBar: true
