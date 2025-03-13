@@ -56,15 +56,15 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
-                  <FaCalculator className="nav-icon" />
-                  <span>Simulador</span>
-                </a>
-              </li>
-              <li className="nav-item">
                 <a className="nav-link" href="#contact">
                   <FaEnvelope className="nav-icon" />
                   <span>Contáctanos</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
+                  <FaCalculator className="nav-icon" />
+                  <span>Simulador</span>
                 </a>
               </li>
             </ul>
