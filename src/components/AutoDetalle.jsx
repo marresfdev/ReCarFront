@@ -76,7 +76,16 @@ const AutoDetalle = () => {
         <div className="card-autodetalle">
           <div className="header">{auto.submarca} {auto.modelo}</div>
           <div className="info">
-            <p>{`Con transmisión ${auto.transm === "STD" ? "estándar" : auto.transm === "AUT" ? "automática" : auto.transm}.`}</p>
+            <p>
+              {`Con transmisión ${
+                {
+                  STD: "estándar",
+                  AUT: "automática",
+                  DSG: "de doble embrague (DSG)",
+                  TIP: "Tiptronic",
+                }[auto.transm] || auto.transm
+              }.`}
+            </p>
             <p className="enganche">
               {`Enganche desde:`}
             </p>
