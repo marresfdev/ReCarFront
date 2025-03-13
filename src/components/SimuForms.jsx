@@ -135,7 +135,7 @@ const SimuForms = () => {
       clearState();
   
       // Mostrar el toast de éxito
-      toast.success("¡Correo enviado, nos pondremos en contacto contigo!", {
+      toast.success("¡Correo enviado, nos pondremos en contacto!", {
         position: "bottom-left",
         autoClose: 5000,
         hideProgressBar: true

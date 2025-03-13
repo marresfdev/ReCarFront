@@ -43,7 +43,7 @@ const Contact = (props) => {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      toast.success("¡Correo enviado, nos pondremos en contacto contigo!", {
+      toast.success("¡Correo enviado, nos pondremos en contacto!", {
         position: "bottom-left",
         autoClose: 3000,
         hideProgressBar: true
