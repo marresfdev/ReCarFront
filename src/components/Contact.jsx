@@ -70,7 +70,7 @@ const Contact = (props) => {
               <h1>Contáctanos</h1>
               <br></br>
               <p className="justified-text">
-                Si tiene alguna duda, comuníquese con nosotros enviando un correo o llamando a los números que aparecen a la derecha en pantalla, estaremos en contacto lo más pronto posible, gracias.
+                Si tiene alguna duda, comuníquese con nosotros enviando un correo o llamando a los números que aparecen a la derecha.
               </p>
             </div>
             <form name="sentMessage" onSubmit={handleSubmit}>
