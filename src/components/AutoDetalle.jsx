@@ -36,7 +36,7 @@ const AutoDetalle = () => {
       .get(`http://localhost:8080/api/getAuto/${id}`)
       .then((response) => {
         setAuto(response.data);
-        setImagenes(response.data.imagenes); // Las imágenes vienen en una lista de objetos con una propiedad 'url'
+        setImagenes(response.data.imagenes); //Las mágenes vienen en una lista de objetos con una propiedad 'url'
       })
       .catch((error) => {
         console.error("Hubo un error al obtener los detalles del auto:", error);
