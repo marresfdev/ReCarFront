@@ -9,13 +9,14 @@ import SimuladorPage from "../pages/SimuladorPage";
 import DetallesAutoPage from "../pages/DetallesAutoPage";
 import SimPage from "../pages/Sim";
 import SimPrueba from "../pages/SimPrueba";
+import AdminPage from "../pages/AdminPage";
 
 const AppRoutes = () => {
   const location = useLocation();
 
   // Verificar si la ruta actual es una de las rutas independientes
   const showNavbar = !(
-    location.pathname === "/auto/:id" || location.pathname === "/simulador" || location.pathname === "/sim"
+    location.pathname === "/auto/:id" || location.pathname === "/simulador" || location.pathname === "/adminPanel" || location.pathname === "/sim"
     || location.pathname === "/simPrueba"
   );
 
@@ -45,6 +46,7 @@ const AppRoutes = () => {
         {/* Rutas independientes, sin content-container */}
         <Route path="/auto/:id" element={<DetallesAutoPage />} />
         <Route path="/simulador" element={<SimPrueba />} />
+        <Route path="/adminPanel" element={<AdminPage />} />
         {/*}
         <Route path="/sim" element={<SimPage />} />
         <Route path="/simPrueba" element={<SimPrueba />} />

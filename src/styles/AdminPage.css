@@ -1,0 +1,13 @@
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding-top: 10px; /* Mayor separación desde arriba */
+    gap: 1px;
+}
+
+.admin-title {
+    margin-bottom: 40px; /* Reduce el margen entre el título y el formulario */
+}

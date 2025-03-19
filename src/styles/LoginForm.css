@@ -1,0 +1,89 @@
+/* Estilo global para el contenedor y centrado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header-admin {
+    position: relative;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 0.75rem;
+    font-size: 25px;
+    font-style: bold;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 3rem;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column; /* Asegura que el título y el formulario estén en columna */
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+}
+
+  
+  .login-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.457);
+    width: 500px; /* Ajustado para que el formulario no sea tan ancho */
+    height: 400px;
+    text-align: center;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .input-group {
+    margin-bottom: 25px; /* Ajuste en la separación de los inputs */
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px !important;
+    outline: none;
+    overflow: hidden; /* Evita que los bordes sean recortados */
+    }
+  
+  .input-group input:focus {
+    border-color: #457b9d;
+  }
+  
+  buttonlogin {
+    width: 40%; /* Ajustado el tamaño del botón */
+    padding: 10px;
+    background-color: #17557b;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  buttonlogin:hover {
+    background-color: #35688d;
+  }
+  
