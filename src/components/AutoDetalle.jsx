@@ -86,6 +86,9 @@ const AutoDetalle = () => {
                 }[auto.transm] || auto.transm
               }.`}
             </p>
+            <p>
+            <p> {auto.km.toLocaleString('es-MX')} km </p> 
+            </p>
             <p className="enganche">
               {`Enganche desde:`}
             </p>
