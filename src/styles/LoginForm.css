@@ -16,8 +16,8 @@
     margin-left: 1rem;
     margin-right: 1rem;
     border-radius: 0.75rem;
-    font-size: 25px;
-    font-style: bold;
+    font-size: 28px;
+    font-weight: bold;
     color: #fff;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 3rem;
@@ -56,6 +56,7 @@
     display: block;
     margin-bottom: 5px;
     color: #666;
+    font-weight: bold;
   }
   
   .input-group input {
@@ -75,11 +76,12 @@
   buttonlogin {
     width: 40%; /* Ajustado el tamaño del botón */
     padding: 10px;
-    background-color: #17557b;
+    background-color: #0d3c5a;
     color: white;
     border: none;
     border-radius: 15px;
     font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
   }
   

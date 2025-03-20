@@ -4,10 +4,25 @@
     align-items: center;
     justify-content: center;
     min-height: 80vh;
-    padding-top: 10px; /* Mayor separación desde arriba */
     gap: 1px;
 }
 
 .admin-title {
-    margin-bottom: 40px; /* Reduce el margen entre el título y el formulario */
+    display: flex;
+    align-items: center; /* Asegura que el texto se alinee con el logo */
+    font-size: 30px; /* Ajusta el tamaño si es necesario */
+    margin: 0; /* Elimina márgenes adicionales que pueden afectar la alineación */
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px; /* Ajusta el valor según la separación deseada */
+}
+
+.admin-logo {
+    width: 50px; /* Ajusta el tamaño según lo necesites */
+    height: auto;
+    object-fit: contain; /* Asegura que el logo se ajuste sin deformarse */
 }
