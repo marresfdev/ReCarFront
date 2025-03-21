@@ -38,7 +38,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.457);
     width: 500px; /* Ajustado para que el formulario no sea tan ancho */
-    height: 400px;
+    height: 450px;
     text-align: center;
   }
   
@@ -73,7 +73,7 @@
     border-color: #457b9d;
   }
   
-  buttonlogin {
+  button {
     width: 40%; /* Ajustado el tamaño del botón */
     padding: 10px;
     background-color: #0d3c5a;
@@ -81,12 +81,21 @@
     border: none;
     border-radius: 15px;
     font-size: 14px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.763);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.342);
     font-weight: bold;
     cursor: pointer;
   }
   
-  buttonlogin:hover {
+  button:hover {
     background-color: #35688d;
+  }
+  
+  .error-message {
+    color: red;
+    background-color: #ffe6e6;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-align: center;
   }
   

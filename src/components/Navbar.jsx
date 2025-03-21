@@ -62,10 +62,10 @@ const Navbar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/simulador" target="_blank" rel="noopener noreferrer">
+                <Link className="nav-link" to="/simulador">
                   <FaCalculator className="nav-icon" />
                   <span>Simulador</span>
-                </a>
+                </Link>
               </li>
             </ul>
           )}
