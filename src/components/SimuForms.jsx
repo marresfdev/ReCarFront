@@ -6,6 +6,9 @@ import '../styles/SimuForms.css';
 import Alert from '@mui/material/Alert';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { autoService } from "../services/autoService"; // Importamos el service
+import { emailService } from "../services/emailService";
+import { simuladorService } from "../services/simuladorService"
 
 const initialState = {
   name: "",
@@ -37,21 +40,23 @@ const SimuForms = () => {
   const [errorImagen, setErrorImagen] = useState("");
   const [tasa, setTasa] = useState("");
 
-  // Obtener vehículos desde la API
   useEffect(() => {
-    fetch("http://localhost:8080/api/getAllAutos")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchAutos = async () => {
+      try {
+        const data = await autoService.getAllAutos();
         const cars = data.map((car) => ({
           value: car.id,
           label: `${car.submarca} ${car.color} ${car.modelo}`,
-          price: car.precio, // Agregar precio
-          carId: car.id, // Agregar id
+          price: car.precio,
+          carId: car.id,
         }));
         setVehicles(cars);
-      })
-      .catch((error) => console.error("Error al obtener los autos:", error));
-  }, []);
+      } catch (error) {
+        console.error("Error al obtener autos", error);
+      }
+    };
+    fetchAutos();
+  }, []);  
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -154,7 +159,7 @@ const SimuForms = () => {
     }
   };
          
-
+/*
   const calcularCredito = async () => {
     const engancheNum = Number(enganche);
     const plazoNum = Number(plazo);
@@ -226,7 +231,69 @@ const SimuForms = () => {
       alert("Hubo un error al calcular el crédito");
     }
   };
-     
+   */
+  
+  const calcularCredito = async () => {
+    const engancheNum = Number(enganche);
+    const plazoNum = Number(plazo);
+    const carIdNum = Number(selectedCarId);
+    const tasaNum = Number(buro);
+  
+    if (isNaN(carIdNum) || carIdNum <= 0) {
+      setErrorCarro("Seleccione un vehículo");
+      setCalculoCredito("");
+      return;
+    } else {
+      setErrorCarro("");
+    }
+  
+    if (isNaN(engancheNum) || engancheNum < Number(selectedCarPrice)) {
+      setErrorEnganche("El enganche debe ser mayor o igual a " + selectedCarPrice);
+      setCalculoCredito("");
+      return;
+    } else {
+      setErrorEnganche("");
+    }
+  
+    if (isNaN(plazoNum) || plazoNum <= 0) {
+      setErrorPlazo("Seleccione un plazo");
+      setCalculoCredito("");
+      return;
+    } else {
+      setErrorPlazo("");
+    }
+  
+    if (isNaN(tasaNum) || tasaNum <= 0) {
+      setErrorBuro("Seleccione su situación en buró de crédito");
+      setCalculoCredito("");
+      return;
+    } else {
+      setErrorBuro("");
+    }
+  
+    try {
+      const simuladorData = {
+        id: carIdNum,
+        enganche: engancheNum,
+        plazo: plazoNum,
+        tasa: tasaNum,
+      };
+  
+      const resultado = await simuladorService.calcularCredito(simuladorData);
+  
+      console.log("Resultado del cálculo:", resultado);
+  
+      if (typeof resultado === "number") {
+        setCalculoCredito(`Pago mensual aproximado:\n${resultado}\n(este valor puede variar)`);
+      } else {
+        alert("Hubo un problema con los datos del cálculo.");
+      }
+    } catch (error) {
+      console.error("Error al calcular el crédito:", error);
+      alert("Hubo un error al calcular el crédito");
+    }
+  };
+  
 
   const calcularEnganche = () => {
     if (enganche < selectedCarPrice) {
