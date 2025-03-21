@@ -73,8 +73,9 @@
     border-color: #457b9d;
   }
   
-  button {
-    width: 40%; /* Ajustado el tamaño del botón */
+  /* Estilos específicos para el botón de login */
+  .login-button {
+    width: 40%;
     padding: 10px;
     background-color: #0d3c5a;
     color: white;
@@ -85,8 +86,8 @@
     font-weight: bold;
     cursor: pointer;
   }
-  
-  button:hover {
+
+  .login-button:hover {
     background-color: #35688d;
   }
   
