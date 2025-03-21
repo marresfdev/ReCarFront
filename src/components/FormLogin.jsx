@@ -22,7 +22,7 @@ const LoginForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Credenciales incorrectas. Inténtelo de nuevo.");
+        throw new Error("Correo o contraseña incorrectos. Inténtelo de nuevo.");
       }
 
       const data = await response.json();
@@ -39,8 +39,6 @@ const LoginForm = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2 className="header-admin">Iniciar Sesión</h2>
-        
-        {error && <p className="error-message">{error}</p>}
 
         <div className="input-group">
           <label htmlFor="email">Correo Electrónico</label>
@@ -63,8 +61,10 @@ const LoginForm = () => {
             required
           />
         </div>
-
         <button type="submit">Iniciar Sesión</button>
+        <br />
+        <br />
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );
