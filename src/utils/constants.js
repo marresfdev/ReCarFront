@@ -6,7 +6,7 @@ export const ENV = {
         AUTOS:'api/getAllAutos',
         AUTO:'api/getAuto',
         SIMULADOR: 'api/calcularCredito',
-        IMAGES: 'api/images',
+        IMAGES: 'images',
         EMAIL: 'api/email',
         EMAILBURO: 'api/emailBuro',
     },
