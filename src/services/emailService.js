@@ -17,11 +17,11 @@ export const emailService = {
     const url = `${ENV.API_URL}/${ENV.ENDPOINTS.EMAILBURO}`;
     const response = await fetch(url, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(emailData),
+      body: emailData, // No usar JSON.stringify, FormData se envía directamente
     });
-
+  
     if (!response.ok) throw new Error("Error al enviar el correo de buró");
     return await response.json();
   },
+  
 };

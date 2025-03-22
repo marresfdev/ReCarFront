@@ -66,8 +66,8 @@ const SimuForms = () => {
       setSelectedCarPrice(selectedCar ? selectedCar.price : "");
       const selectedCarId = selectedCar ? selectedCar.carId : "";
       setSelectedCarId(selectedCarId);
-      console.log("Vehículo seleccionado:", selectedCar);
-      console.log("ID del vehículo seleccionado:", selectedCarId);
+      //console.log("Vehículo seleccionado:", selectedCar);
+      //console.log("ID del vehículo seleccionado:", selectedCarId);
     }
     
   
@@ -128,13 +128,18 @@ const SimuForms = () => {
     formData.append("imagen", imagen);
   
     try {
+      /*
       const response = await fetch("http://localhost:8080/api/emailBuro", {
         method: "POST",
         body: formData,
       });
-  
-      const data = await response.json();
+      */
+
+      //const data = await response.json();
+      const data = await emailService.sendEmailBuro(formData);
       console.log(data);
+      //const data = await response.json();
+      //console.log(data);
       setLoading(false);
       setMostrarAlerta(true);
       clearState();
@@ -280,9 +285,7 @@ const SimuForms = () => {
       };
   
       const resultado = await simuladorService.calcularCredito(simuladorData);
-  
-      console.log("Resultado del cálculo:", resultado);
-  
+    
       if (typeof resultado === "number") {
         setCalculoCredito(`Pago mensual aproximado:\n${resultado}\n(este valor puede variar)`);
       } else {
@@ -301,7 +304,7 @@ const SimuForms = () => {
     } else {
       setErrorEnganche("");
       // Aquí puedes continuar con el cálculo
-      console.log("Cálculo realizado correctamente.");
+      //.log("Cálculo realizado correctamente.");
     }
   };
 

@@ -4,8 +4,6 @@ export const simuladorService = {
   calcularCredito: async (simuladorData) => {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.SIMULADOR}`;
-      console.log("Enviando solicitud a:", url);
-      console.log("Datos enviados:", JSON.stringify(simuladorData));
 
       const response = await fetch(url, {
         method: "POST",
