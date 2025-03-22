@@ -8,6 +8,7 @@ import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import "../styles/Contact.css"
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { emailService } from "../services/emailService";
 
 const initialState = {
   name: "",
@@ -26,38 +27,35 @@ const Contact = (props) => {
 
   const clearState = () => setState({ ...initialState });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("name: "+ name);
     console.log("email: "+ email);
     console.log("message: "+ message);
     setIsLoading(true); // Bloquea el botón
-
-    // Realizar la solicitud POST al backend
-    fetch(`http://localhost:8080/api/email?name=${name}&email=${email}&message=${message}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
+  
+    const emailData = { name, email, message }; // Crear el objeto JSON
+  
+    try {
+      const response = await emailService.sendEmail(emailData);
+      console.log(response);
       toast.success("¡Correo enviado, nos pondremos en contacto!", {
         position: "bottom-left",
         autoClose: 3000,
-        hideProgressBar: true
+        hideProgressBar: true,
       });
       clearState(); // Limpiar el formulario
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("Error:", error);
-      alert("Hubo un error al enviar el correo");
-    })
-    .finally(() => {
+      toast.error("Hubo un error al enviar el correo", {
+        position: "bottom-left",
+        autoClose: 3000,
+      });
+    } finally {
       setIsLoading(false); // Reactiva el botón
-    });    
+    }
   };
+  
 
   return (
     <div id="contact">
